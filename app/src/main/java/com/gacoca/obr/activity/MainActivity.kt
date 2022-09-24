@@ -1,9 +1,10 @@
-package com.gacoca.obr
+package com.gacoca.obr.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.gacoca.obr.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         initView()
         btCaisse.setOnClickListener {
-            val  intent = Intent(this,PosActivity::class.java)
+            val  intent = Intent(this, PosActivity::class.java)
             startActivity(intent)
         }
     }
