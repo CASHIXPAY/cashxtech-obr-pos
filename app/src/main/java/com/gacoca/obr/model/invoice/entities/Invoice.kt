@@ -11,13 +11,13 @@ data class Invoice(
 
     @PrimaryKey
     @ColumnInfo(name = "id")
-    val id : UUID,
+    val id : Int,
 
     @ColumnInfo(name = "invoice_number")
     val invoiceNumber: String,
 
     @ColumnInfo(name = "invoice_date")
-    val invoiceDate: LocalDateTime,
+    val invoiceDate: String,
 
     @ColumnInfo(name = "invoice_type")
     val invoiceType: String,
@@ -71,7 +71,7 @@ data class Invoice(
     val invoiceSignature:String,
 
     @ColumnInfo(name = "invoice_signature_date")
-    val invoiceSignatureDate: LocalDateTime,
+    val invoiceSignatureDate: String,
 
     @ColumnInfo(name = "invoice_total_amount")
     val invoiceTotalAmount: Double

@@ -10,7 +10,7 @@ data class InvoiceItem(
 
     @PrimaryKey
     @ColumnInfo(name = "id")
-    val id : UUID,
+    val id : Int,
 
     @ColumnInfo(name = "invoice_number_ref")
     val invoiceNumberRef:String,
