@@ -1,31 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_gravity="center_vertical"
     android:orientation="vertical"
     tools:context=".activity.PosActivity">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvInvoiceItems"
+        android:layout_width="422dp"
+        android:layout_height="503dp"
+        app:layout_constraintBottom_toTopOf="@+id/etItemDesignation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <EditText
         android:id="@+id/etItemDesignation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:hint="Nom de l'article"
         android:minHeight="48dp"
-        android:hint="Nom de l'article" />
+        app:layout_constraintBottom_toTopOf="@id/etItemQuantity"
+        tools:layout_editor_absoluteX="16dp" />
 
     <EditText
         android:id="@+id/etItemQuantity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_margin="16dp"
         android:ems="10"
+        android:hint="Quantite"
         android:inputType="numberDecimal"
         android:minHeight="48dp"
-        android:hint="Quantite" />
+        app:layout_constraintBottom_toTopOf="@id/etItemPrice"
+
+        tools:layout_editor_absoluteX="16dp" />
 
     <EditText
         android:id="@+id/etItemPrice"
@@ -37,45 +54,28 @@
         android:ems="10"
         android:inputType="numberDecimal"
         android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@id/btAdd"
         android:hint="Prix" />
 
-    <TextView
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btAdd"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:text="Enregistrer Article"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btPay"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btPay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Assujetti TVA ?"/>
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp">
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="oui"/>
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="non"/>
-    </RadioGroup>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/btAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Enregistrer paiement"
-            android:textAllCaps="false"/>
-
-    </LinearLayout>
-
-</LinearLayout>
+        android:text="Enregistrer Paiement"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+    />
+</androidx.constraintlayout.widget.ConstraintLayout>

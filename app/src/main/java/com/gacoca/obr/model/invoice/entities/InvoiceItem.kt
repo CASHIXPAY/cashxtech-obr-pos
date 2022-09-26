@@ -19,26 +19,26 @@ data class InvoiceItem(
     val itemDesignation:String,
 
     @ColumnInfo(name = "item_quantity")
-    val itemQuantity:Double,
+    val itemQuantity:String,
 
     @ColumnInfo(name = "item_price")
-    val itemPrice:Double,
+    val itemPrice:String,
 
-    @ColumnInfo(name = "item_ct")
+  /**  @ColumnInfo(name = "item_ct")
     val itemCt:Double,
 
     @ColumnInfo(name = "item_tl")
     val itemTl:Double,
 
     @ColumnInfo(name = "item_price_nvat")
-    val itemPriceNvat:Double,
+    val itemPriceNvat:String,
 
     @ColumnInfo(name = "vat")
-    val vat:Double,
+    val vat:String,
 
     @ColumnInfo(name = "item_price_wvat")
-    val  itemPriceWvat:Double,
+    val  itemPriceWvat:String,
 
     @ColumnInfo(name = "item_total_amount")
-    val itemTotalAmount: Double
+    val itemTotalAmount: String**/
 )

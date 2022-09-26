@@ -5,16 +5,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.gacoca.obr.R
+import com.gacoca.obr.adapter.InvoiceItemAdapter
 import com.gacoca.obr.database.PosDatabase
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var btCaisse: Button
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         initView()
+
+
         btCaisse.setOnClickListener {
             val  intent = Intent(this, PosActivity::class.java)
             startActivity(intent)

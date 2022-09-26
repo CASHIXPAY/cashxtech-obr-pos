@@ -15,7 +15,5 @@ r
 Bapp/src/androidTest/java/com/gacoca/obr/ExampleInstrumentedTest.kt,f\7\f7aed13f466f20315e6c79b929742c2ede3e1689
 c
 3app/src/test/java/com/gacoca/obr/ExampleUnitTest.kt,0\1\01ef120daf19da1b3fde981da3ef5ea3ef004c47
-h
-8app/src/main/java/com/gacoca/obr/activity/PosActivity.kt,6\6\66462e619e56c378849a72d44e997697244ba82d
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
