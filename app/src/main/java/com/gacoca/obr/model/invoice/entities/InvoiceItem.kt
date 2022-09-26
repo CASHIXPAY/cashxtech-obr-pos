@@ -3,12 +3,12 @@ package com.gacoca.obr.model.invoice.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.*
+
 
 @Entity(tableName = "invoice_item")
 data class InvoiceItem(
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     val id : Int,
 
