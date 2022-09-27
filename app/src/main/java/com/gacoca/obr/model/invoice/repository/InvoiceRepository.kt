@@ -1,9 +1,9 @@
-package com.gacoca.obr.model.invoice.entities.repository
+package com.gacoca.obr.model.invoice.repository
 
 import com.gacoca.obr.model.invoice.entities.Invoice
 import com.gacoca.obr.model.invoice.entities.InvoiceItem
 import com.gacoca.obr.model.invoice.entities.InvoiceWithItems
-import com.gacoca.obr.model.invoice.entities.dao.InvoiceDao
+import com.gacoca.obr.model.invoice.dao.InvoiceDao
 
 class InvoiceRepository(private  val invoiceDao: InvoiceDao) {
 

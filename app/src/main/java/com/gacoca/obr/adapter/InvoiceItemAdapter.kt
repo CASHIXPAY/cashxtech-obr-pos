@@ -27,7 +27,7 @@ class InvoiceItemAdapter(private val invoiceItemList: MutableList<InvoiceItem>)
         notifyItemInserted(invoiceItemList.size-1)
     }
 
-    fun deleteItem(invoiceItem: InvoiceItem){
+    private fun deleteItem(invoiceItem: InvoiceItem){
 
         invoiceItemList.remove(invoiceItem)
         notifyDataSetChanged();
@@ -38,8 +38,8 @@ class InvoiceItemAdapter(private val invoiceItemList: MutableList<InvoiceItem>)
         val curInvoiceItem = invoiceItemList[position]
         holder.itemView.apply {
             tvItemDesignation.text = curInvoiceItem.itemDesignation
-            tvItemQuantity.text = curInvoiceItem.itemQuantity
-            tvItemPrice.text = curInvoiceItem.itemPrice
+            tvItemQuantity.text = curInvoiceItem.itemQuantity.toString()
+            tvItemPrice.text = curInvoiceItem.itemTotalAmount.toString()
 
             btDelete.setOnClickListener {
 

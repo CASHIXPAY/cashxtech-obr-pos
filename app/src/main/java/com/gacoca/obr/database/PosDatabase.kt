@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.gacoca.obr.model.invoice.entities.Invoice
 import com.gacoca.obr.model.invoice.entities.InvoiceItem
-import com.gacoca.obr.model.invoice.entities.dao.InvoiceDao
+import com.gacoca.obr.model.invoice.dao.InvoiceDao
 
 @Database(
     entities = [Invoice::class,InvoiceItem::class],

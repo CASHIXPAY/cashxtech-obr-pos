@@ -1,4 +1,4 @@
-package com.gacoca.obr.model.invoice.entities.dao
+package com.gacoca.obr.model.invoice.dao
 
 import androidx.room.*
 import com.gacoca.obr.model.invoice.entities.Invoice
