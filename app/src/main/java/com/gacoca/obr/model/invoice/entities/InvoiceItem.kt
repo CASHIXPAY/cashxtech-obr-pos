@@ -10,10 +10,10 @@ data class InvoiceItem(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    val id : Int,
+    val id: Int,
 
     @ColumnInfo(name = "invoice_number_ref")
-    val invoiceNumberRef:String,
+    var invoiceNumber: String?,
 
     @ColumnInfo(name= "item_designation")
     val itemDesignation:String,
@@ -37,8 +37,9 @@ data class InvoiceItem(
     val vat:Double,
 
     @ColumnInfo(name = "item_price_wvat")
-    val  itemPriceWvat:Double,
+    val itemPriceWvat:Double,
 
     @ColumnInfo(name = "item_total_amount")
     val itemTotalAmount: Double
 )
+

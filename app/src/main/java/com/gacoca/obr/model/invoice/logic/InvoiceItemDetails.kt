@@ -1,13 +1,15 @@
 package com.gacoca.obr.model.invoice.logic
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.gacoca.obr.model.invoice.entities.InvoiceItem
+import java.time.LocalDateTime
 import kotlin.math.roundToInt
 
 class InvoiceItemDetails () {
 
 
-    fun get(itemDesignation:String,itemQuantity:Double,itemUnitPrice:Double ): InvoiceItem{
-
+    fun get(itemDesignation:String, itemQuantity:Double, itemUnitPrice:Double ): InvoiceItem{
 
         val itemPrice = itemUnitPrice * itemQuantity
 
@@ -23,7 +25,7 @@ class InvoiceItemDetails () {
 
         val itemTotalAmount = itemPriceWvat + itemTl
 
-        return InvoiceItem(1,"test",itemDesignation,itemQuantity,itemUnitPrice,itemCt,itemTl,itemPriceNvat,vat,itemPriceWvat,itemTotalAmount)
+        return InvoiceItem(0,null,itemDesignation,itemQuantity,itemUnitPrice,itemCt,itemTl,itemPriceNvat,vat,itemPriceWvat,itemTotalAmount)
     }
 
 
@@ -48,5 +50,7 @@ class InvoiceItemDetails () {
         return (price * 100.0).roundToInt() / 100.0
 
     }
+
+
 
 }

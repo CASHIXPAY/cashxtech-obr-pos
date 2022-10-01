@@ -15,6 +15,9 @@ data class Invoice(
     @ColumnInfo(name = "invoice_number")
     val invoiceNumber: String,
 
+    @ColumnInfo(name= "invoice_local_ref")
+    val invoiceLocalRef:String,
+
     @ColumnInfo(name = "invoice_date")
     val invoiceDate: String,
 
@@ -43,13 +46,13 @@ data class Invoice(
     val tpAddressQuartier: String,
 
     @ColumnInfo(name = "vat_tax_payer")
-    val vatTaxPayer: Int,
+    val vatTaxPayer: String,
 
     @ColumnInfo(name = "ct_tax_payer")
-    val ctTaxPayer: Int,
+    val ctTaxPayer: String,
 
     @ColumnInfo(name = "lt_tax_payer")
-    val ltTaxPayer: Int,
+    val ltTaxPayer: String,
 
     @ColumnInfo(name = "tp_fiscal_center")
     val tpFiscalCenter: String,

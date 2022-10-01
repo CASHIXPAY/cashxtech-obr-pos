@@ -9,10 +9,10 @@ import com.gacoca.obr.model.invoice.entities.InvoiceWithItems
 interface InvoiceDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertInvoice(invoice: Invoice)
+     fun insertInvoice(invoice: Invoice)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertInvoiceItem(invoiceItem: InvoiceItem)
+     fun insertInvoiceItem(invoiceItem: InvoiceItem)
 
     @Transaction
     @Query("SELECT * FROM Invoice")

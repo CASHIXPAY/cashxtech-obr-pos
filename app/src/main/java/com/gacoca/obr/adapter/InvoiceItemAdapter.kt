@@ -53,5 +53,10 @@ class InvoiceItemAdapter(private val invoiceItemList: MutableList<InvoiceItem>)
         return invoiceItemList.size
     }
 
+    fun getItemList(): List<InvoiceItem>{
+
+        return  invoiceItemList;
+    }
+
 
 }

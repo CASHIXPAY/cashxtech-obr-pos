@@ -40,7 +40,7 @@ abstract class PosDatabase : RoomDatabase() {
                 context.applicationContext,
                 PosDatabase::class.java,
                 "posdb"
-            ).build()
+            ).allowMainThreadQueries().build()
 
         }
     }

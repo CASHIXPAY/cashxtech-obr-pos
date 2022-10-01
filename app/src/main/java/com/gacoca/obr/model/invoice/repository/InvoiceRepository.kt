@@ -7,7 +7,7 @@ import com.gacoca.obr.model.invoice.dao.InvoiceDao
 
 class InvoiceRepository(private  val invoiceDao: InvoiceDao) {
 
-    suspend fun addInvoice(invoiceWithItems: InvoiceWithItems){
+     fun addInvoice(invoiceWithItems: InvoiceWithItems){
 
         val invoice:Invoice = invoiceWithItems.invoice;
         invoiceDao.insertInvoice(invoice)
