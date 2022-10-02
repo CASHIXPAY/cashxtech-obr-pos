@@ -23,9 +23,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.PosActivity"
+            android:name=".activity.pos.PosActivity"
             android:screenOrientation="fullSensor" />
-
+        <activity
+            android:name=".activity.pos.EncaisseActivity"
+            android:screenOrientation="fullSensor" />
     </application>
 
 </manifest>

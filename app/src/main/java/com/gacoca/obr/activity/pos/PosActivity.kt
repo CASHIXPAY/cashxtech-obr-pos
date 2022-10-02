@@ -1,18 +1,19 @@
-package com.gacoca.obr.activity
+package com.gacoca.obr.activity.pos
 
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gacoca.obr.R
 import com.gacoca.obr.adapter.InvoiceItemAdapter
-import com.gacoca.obr.database.PosDatabase
 
-import com.gacoca.obr.model.invoice.entities.InvoiceWithItems
 import com.gacoca.obr.model.invoice.logic.InvoiceDetails
 import com.gacoca.obr.model.invoice.logic.InvoiceItemDetails
-import com.gacoca.obr.model.invoice.repository.InvoiceRepository
+
 import kotlinx.android.synthetic.main.activity_pos.*
+
 
 class PosActivity :AppCompatActivity() {
 
@@ -52,20 +53,20 @@ class PosActivity :AppCompatActivity() {
 
             val invoice = invoiceDetails.get(invoiceItemList)
 
-            val appDb = PosDatabase.getDatabase(this)
-
-            val invoiceDao = appDb.invoiceDao();
-
-            val invoiceRepo = InvoiceRepository(invoiceDao)
-
             for(invoiceItem in invoiceItemList){
 
                 invoiceItem.invoiceNumber = invoice.invoiceNumber
             }
-            val invoiceWithItems = InvoiceWithItems(invoice,invoiceItemList)
 
-            invoiceRepo.addInvoice(invoiceWithItems)
+        val intent = Intent(this,EncaisseActivity::class.java)
+
+
+            intent.putParcelableArrayListExtra("ItemList",invoiceItemList.toMutableList() as  java.util.ArrayList <out Parcelable> )
+
+            startActivity(intent)
+
 
         }
     }
+
 }

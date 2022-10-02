@@ -1,7 +1,5 @@
 package com.gacoca.obr.model.invoice.logic
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.gacoca.obr.model.invoice.entities.InvoiceItem
 import java.time.LocalDateTime
 import kotlin.math.roundToInt

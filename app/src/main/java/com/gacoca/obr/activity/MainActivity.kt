@@ -5,8 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.gacoca.obr.R
-import com.gacoca.obr.adapter.InvoiceItemAdapter
-import com.gacoca.obr.database.PosDatabase
+import com.gacoca.obr.activity.pos.PosActivity
 
 class MainActivity : AppCompatActivity() {
 

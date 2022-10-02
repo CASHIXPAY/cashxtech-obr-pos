@@ -15,7 +15,11 @@ r
 Bapp/src/androidTest/java/com/gacoca/obr/ExampleInstrumentedTest.kt,f\7\f7aed13f466f20315e6c79b929742c2ede3e1689
 c
 3app/src/test/java/com/gacoca/obr/ExampleUnitTest.kt,0\1\01ef120daf19da1b3fde981da3ef5ea3ef004c47
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-i
-9app/src/main/java/com/gacoca/obr/activity/MainActivity.kt,5\8\58e09ae5febaafc03fc0e69b0b5437c3009a2787
+{
+Kapp/src/main/java/com/gacoca/obr/model/invoice/entities/InvoiceWithItems.kt,c\1\c16f98729b09b591b532f0e05b2d0d94dc9e250f
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+y
+Iapp/src/main/java/com/gacoca/obr/model/invoice/enumeration/InvoiceType.kt,1\6\1634b700c8d1ddf07c494bdb18002ff79e4ae50c
+h
+8app/src/main/java/com/gacoca/obr/database/PosDatabase.kt,7\6\7631695d995c8ee0444106e7eb20454cd6e0c873

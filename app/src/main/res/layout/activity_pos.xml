@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
     android:orientation="vertical"
-    tools:context=".activity.PosActivity">
+    tools:context=".activity.pos.PosActivity">
 
 
     <androidx.recyclerview.widget.RecyclerView
