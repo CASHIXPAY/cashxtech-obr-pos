@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:orientation="vertical"
+    tools:context=".activity.pos.PosActivity">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvInvoiceItemsEncaisse"
+        android:layout_width="422dp"
+        android:layout_height="503dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvItemCount"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    <TextView
+        android:id="@+id/tvItemCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre article = "
+
+        app:layout_constraintBottom_toTopOf="@+id/tvItemTotal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.254"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvItemCountValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Nombre article Value"
+        app:layout_constraintBottom_toTopOf="@+id/tvItemTotalValue"
+        app:layout_constraintStart_toEndOf="@+id/tvItemCount" />
+
+    <TextView
+        android:id="@+id/tvItemTotal"
+        android:layout_width="106dp"
+        android:layout_height="25dp"
+        android:text="Total Facture = "
+        app:layout_constraintBottom_toTopOf="@id/btPay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.259"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvItemTotalValue"
+        android:layout_width="132dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="24dp"
+        android:text="Total Facture Value"
+        app:layout_constraintBottom_toTopOf="@id/btPay"
+        app:layout_constraintStart_toEndOf="@+id/tvItemTotal" />
+
+    <Button
+        android:id="@+id/btPay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="10dp"
+        android:text="Enregistrer Paiement"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
