@@ -47,18 +47,11 @@ class PosActivity :AppCompatActivity() {
 
         }
 
-        btPay.setOnClickListener {
+        btRegisterItems.setOnClickListener {
 
           val invoiceItemList = invoiceItemAdapter.getItemList()
 
-            val invoice = invoiceDetails.get(invoiceItemList)
-
-            for(invoiceItem in invoiceItemList){
-
-                invoiceItem.invoiceNumber = invoice.invoiceNumber
-            }
-
-        val intent = Intent(this,EncaisseActivity::class.java)
+            val intent = Intent(this,EncaisseActivity::class.java)
 
 
             intent.putParcelableArrayListExtra("ItemList",invoiceItemList.toMutableList() as  java.util.ArrayList <out Parcelable> )

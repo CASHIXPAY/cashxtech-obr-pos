@@ -1,6 +1,7 @@
 package com.gacoca.obr.database
 
 import android.content.Context
+import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -8,9 +9,10 @@ import com.gacoca.obr.model.invoice.entities.Invoice
 import com.gacoca.obr.model.invoice.entities.InvoiceItem
 import com.gacoca.obr.model.invoice.dao.InvoiceDao
 
+
 @Database(
     entities = [Invoice::class,InvoiceItem::class],
-    version = 1,
+    version = 2,
     exportSchema = true
 )
 abstract class PosDatabase : RoomDatabase() {
@@ -40,7 +42,7 @@ abstract class PosDatabase : RoomDatabase() {
                 context.applicationContext,
                 PosDatabase::class.java,
                 "posdb"
-            ).allowMainThreadQueries().build()
+            ).allowMainThreadQueries().fallbackToDestructiveMigration().build()
 
         }
     }

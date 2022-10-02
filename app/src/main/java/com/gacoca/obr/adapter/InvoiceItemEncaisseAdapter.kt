@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gacoca.obr.R
 import com.gacoca.obr.model.invoice.entities.InvoiceItem
+import kotlinx.android.synthetic.main.activity_pos_encaisse.view.*
 import kotlinx.android.synthetic.main.invoice_item_list.view.*
 
 class InvoiceItemEncaisseAdapter(private val invoiceItemList: MutableList<InvoiceItem>) : RecyclerView.Adapter<InvoiceItemEncaisseAdapter.InvoiceItemViewHolder>() {
@@ -14,6 +15,8 @@ class InvoiceItemEncaisseAdapter(private val invoiceItemList: MutableList<Invoic
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InvoiceItemViewHolder {
         return InvoiceItemViewHolder(
+
+
             LayoutInflater.from(parent.context).inflate(
                 R.layout.invoice_item_list_encaisse,parent,false)
         )
@@ -30,6 +33,8 @@ class InvoiceItemEncaisseAdapter(private val invoiceItemList: MutableList<Invoic
             tvItemDesignation.text = curInvoiceItem.itemDesignation
             tvItemQuantity.text = curInvoiceItem.itemQuantity.toString()
             tvItemPrice.text = curInvoiceItem.itemTotalAmount.toString()
+
+
 
         }
     }
