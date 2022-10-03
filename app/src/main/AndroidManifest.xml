@@ -28,6 +28,10 @@
         <activity
             android:name=".activity.pos.EncaisseActivity"
             android:screenOrientation="fullSensor" />
+
+        <activity
+            android:name=".activity.invoice.InvoiceManagerActivity"
+            android:screenOrientation="fullSensor" />
     </application>
 
 </manifest>

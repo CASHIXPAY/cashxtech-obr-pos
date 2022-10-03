@@ -18,4 +18,9 @@ class InvoiceRepository(private  val invoiceDao: InvoiceDao) {
             invoiceDao.insertInvoiceItem(invoiceItem)
         }
     }
+
+    fun getInvoices():List<Invoice>{
+
+        return invoiceDao.getInvoices()
+    }
 }

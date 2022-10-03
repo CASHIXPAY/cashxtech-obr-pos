@@ -17,4 +17,8 @@ interface InvoiceDao {
     @Transaction
     @Query("SELECT * FROM Invoice")
     fun getInvoiceWithItems(): List<InvoiceWithItems>
+
+    @Transaction
+    @Query("SELECT * FROM Invoice")
+    fun getInvoices(): List<Invoice>
 }

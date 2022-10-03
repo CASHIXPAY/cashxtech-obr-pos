@@ -21,3 +21,5 @@ Kapp/src/main/java/com/gacoca/obr/model/invoice/entities/InvoiceWithItems.kt,c\
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 y
 Iapp/src/main/java/com/gacoca/obr/model/invoice/enumeration/InvoiceType.kt,1\6\1634b700c8d1ddf07c494bdb18002ff79e4ae50c
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35

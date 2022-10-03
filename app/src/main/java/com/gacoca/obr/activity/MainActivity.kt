@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.gacoca.obr.R
+import com.gacoca.obr.activity.invoice.InvoiceManagerActivity
 import com.gacoca.obr.activity.pos.PosActivity
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var btCaisse: Button
+    private lateinit var btInvoiceManager:Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,10 +25,16 @@ class MainActivity : AppCompatActivity() {
             val  intent = Intent(this, PosActivity::class.java)
             startActivity(intent)
         }
+
+        btInvoiceManager.setOnClickListener {
+            val  intent = Intent(this, InvoiceManagerActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun initView(){
 
         btCaisse = findViewById(R.id.btCaisse)
+        btInvoiceManager = findViewById(R.id.btInvoiceManager)
     }
 }

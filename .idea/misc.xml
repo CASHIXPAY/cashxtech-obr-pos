@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/baran/StudioProjects/OBRPOS/app/src/main/res/layout/activity_invoice_manager.xml" value="0.2427536231884058" />
         <entry key="..\:/Users/baran/StudioProjects/OBRPOS/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/baran/StudioProjects/OBRPOS/app/src/main/res/layout/activity_pos.xml" value="0.3151041666666667" />
         <entry key="..\:/Users/baran/StudioProjects/OBRPOS/app/src/main/res/layout/activity_pos_encaisse.xml" value="0.2947916666666667" />
         <entry key="..\:/Users/baran/StudioProjects/OBRPOS/app/src/main/res/layout/invoice_item_list.xml" value="0.48671875" />
         <entry key="..\:/Users/baran/StudioProjects/OBRPOS/app/src/main/res/layout/invoice_item_list_encaisse.xml" value="0.2947916666666667" />
+        <entry key="..\:/Users/baran/StudioProjects/OBRPOS/app/src/main/res/layout/invoice_item_saved_list.xml" value="0.42578125" />
+        <entry key="..\:/Users/baran/StudioProjects/OBRPOS/app/src/main/res/layout/invoice_saved_list.xml" value="0.1" />
       </map>
     </option>
   </component>
