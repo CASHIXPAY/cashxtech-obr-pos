@@ -35,5 +35,3 @@ i
 9app/src/main/java/com/gacoca/obr/activity/MainActivity.kt,5\8\58e09ae5febaafc03fc0e69b0b5437c3009a2787
 h
 8app/src/main/java/com/gacoca/obr/database/PosDatabase.kt,7\6\7631695d995c8ee0444106e7eb20454cd6e0c873
-o
-?app/src/main/java/com/gacoca/obr/adapter/SavedInvoiceAdapter.kt,9\f\9ffe16df734c21ac0f7926b05de6f4390849a72d
