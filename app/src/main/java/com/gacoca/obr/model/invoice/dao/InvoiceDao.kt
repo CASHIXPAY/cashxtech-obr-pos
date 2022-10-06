@@ -21,4 +21,12 @@ interface InvoiceDao {
     @Transaction
     @Query("SELECT * FROM Invoice")
     fun getInvoices(): List<Invoice>
+
+    @Transaction
+    @Query("SELECT invoice_date FROM Invoice GROUP BY invoice_date ORDER BY invoice_number DESC LIMIT 50")
+    fun getLatestInvoiceDates(): List<String>
+
+    @Transaction
+    @Query("SELECT * FROM Invoice ORDER BY invoice_number DESC LIMIT 50")
+    fun getLatestInvoices():List<Invoice>
 }

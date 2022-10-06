@@ -23,3 +23,17 @@ y
 Iapp/src/main/java/com/gacoca/obr/model/invoice/enumeration/InvoiceType.kt,1\6\1634b700c8d1ddf07c494bdb18002ff79e4ae50c
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+v
+Fapp/src/main/java/com/gacoca/obr/adapter/InvoiceItemEncaisseAdapter.kt,a\5\a5cfcd2fa42118967b96e3f4b2342635f2adafa6
+q
+Aapp/src/main/java/com/gacoca/obr/activity/pos/EncaisseActivity.kt,1\8\18d7a09e5d9f0417c4fa7ff5c075ae4c4cd22ed7
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+v
+Fapp/src/main/java/com/gacoca/obr/model/invoice/logic/InvoiceDetails.kt,e\1\e14deb1150b847c8304d735ca3e1f700489fdb0c
+i
+9app/src/main/java/com/gacoca/obr/activity/MainActivity.kt,5\8\58e09ae5febaafc03fc0e69b0b5437c3009a2787
+h
+8app/src/main/java/com/gacoca/obr/database/PosDatabase.kt,7\6\7631695d995c8ee0444106e7eb20454cd6e0c873
+o
+?app/src/main/java/com/gacoca/obr/adapter/SavedInvoiceAdapter.kt,9\f\9ffe16df734c21ac0f7926b05de6f4390849a72d

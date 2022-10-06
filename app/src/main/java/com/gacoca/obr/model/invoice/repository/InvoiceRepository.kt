@@ -23,4 +23,14 @@ class InvoiceRepository(private  val invoiceDao: InvoiceDao) {
 
         return invoiceDao.getInvoices()
     }
+
+    fun getLatestInvoiceDates():List<String>{
+
+        return invoiceDao.getLatestInvoiceDates()
+    }
+
+    fun getLatestInvoices():List<Invoice>{
+
+        return invoiceDao.getLatestInvoices()
+    }
 }

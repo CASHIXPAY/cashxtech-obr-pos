@@ -10,6 +10,7 @@ import com.gacoca.obr.R
 import com.gacoca.obr.adapter.SavedInvoiceAdapter
 import com.gacoca.obr.database.PosDatabase
 import com.gacoca.obr.model.invoice.entities.Invoice
+import com.gacoca.obr.model.invoice.entities.InvoiceItem
 
 import com.gacoca.obr.model.invoice.repository.InvoiceRepository
 import kotlinx.android.synthetic.main.activity_invoice_manager.*
@@ -30,12 +31,44 @@ class InvoiceManagerActivity  : AppCompatActivity() {
 
         val invoiceRepo = InvoiceRepository(invoiceDao)
 
-        val invoiceList = invoiceRepo.getInvoices()
+        val invoiceDateList = invoiceRepo.getLatestInvoiceDates()
+        val invoiceList = invoiceRepo.getLatestInvoices()
 
-        println(invoiceList.size)
+        println(getGroupedInvoiceByDate(invoiceDateList,invoiceList))
+
         savedInvoiceAdapter = SavedInvoiceAdapter(invoiceList as MutableList<Invoice>)
         rvInvoicesList.adapter = savedInvoiceAdapter
         rvInvoicesList.layoutManager = LinearLayoutManager(this)
 
+    }
+
+
+
+
+    private fun getGroupedInvoiceByDate(invoiceDateList:List<String>,invoiceList:List<Invoice>):LinkedHashMap<String, List<Invoice>>{
+
+        val hashMap : LinkedHashMap<String, List<Invoice>> = LinkedHashMap ()
+        for (date: String in invoiceDateList){
+
+            hashMap[date] = getInvoiceListByDate(date,invoiceList)
+
+        }
+
+        return hashMap
+    }
+
+
+    private fun getInvoiceListByDate(invoiceDate:String,invoiceList: List<Invoice>):List<Invoice>{
+
+       val invoiceByDateList: MutableList<Invoice> = mutableListOf()
+
+       for(invoice: Invoice in invoiceList){
+
+           if(invoice.invoiceDate == invoiceDate){
+               invoiceByDateList.add(invoice)
+           }
+       }
+
+        return invoiceByDateList
     }
 }
