@@ -2,7 +2,7 @@ package com.gacoca.obr.activity.pos
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Parcelable
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gacoca.obr.R
@@ -67,6 +67,8 @@ class EncaisseActivity : AppCompatActivity() {
 
 
             val intent = Intent(this,MainActivity::class.java)
+
+
 
             startActivity(intent)
 

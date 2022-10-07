@@ -1,11 +1,14 @@
 package com.gacoca.obr.activity.invoice
 
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gacoca.obr.R
+import com.gacoca.obr.activity.pos.EncaisseActivity
 
 import com.gacoca.obr.adapter.SavedInvoiceAdapter
 import com.gacoca.obr.database.PosDatabase
@@ -13,6 +16,7 @@ import com.gacoca.obr.model.invoice.entities.Invoice
 
 import com.gacoca.obr.model.invoice.repository.InvoiceRepository
 import kotlinx.android.synthetic.main.activity_invoice_manager.*
+import kotlinx.android.synthetic.main.invoice_saved_list.*
 
 
 class InvoiceManagerActivity  : AppCompatActivity() {

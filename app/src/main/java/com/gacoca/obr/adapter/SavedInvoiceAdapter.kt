@@ -1,5 +1,6 @@
 package com.gacoca.obr.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,11 +36,6 @@ class SavedInvoiceAdapter (private val groupedInvoicedMap: LinkedHashMap<String,
         }
     }
 
-    fun bind(invoiceList: List<Invoice>){
-
-
-
-    }
 
     override fun getItemCount(): Int {
         return groupedInvoicedMap.size

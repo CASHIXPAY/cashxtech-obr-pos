@@ -33,4 +33,9 @@ class InvoiceRepository(private  val invoiceDao: InvoiceDao) {
 
         return invoiceDao.getLatestInvoices()
     }
+
+    fun getInvoiceWithItems(invoiceNumber:String): InvoiceWithItems{
+
+        return invoiceDao.getInvoiceWithItems(invoiceNumber)
+    }
 }
