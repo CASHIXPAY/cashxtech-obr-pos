@@ -9,7 +9,7 @@ class InvoiceDetails() {
 
 
 
-    fun get( invoiceItems: List<InvoiceItem>):Invoice{
+    fun get( invoiceItems: List<InvoiceItem>,invoiceType: InvoiceType):Invoice{
 
         val  localDateTime = LocalDateTime.now();
 
@@ -18,8 +18,6 @@ class InvoiceDetails() {
         val invoiceLocalRef = getInvoiceNumberRef(localDateTime);
 
         val invoiceDate = localDateTime.toLocalDate().toString();
-
-        val invoiceType = InvoiceType.FN.toString();
 
         val tpType = "1";
 
@@ -65,9 +63,9 @@ class InvoiceDetails() {
 
 
 
-        return Invoice(0,invoiceNumber,invoiceLocalRef,invoiceDate,invoiceType,tpType,tpName,
+        return Invoice(0,invoiceNumber,invoiceLocalRef,invoiceDate,invoiceType.toString(),tpType,tpName,
         tpTIN,tpTradeNumber,tpPhoneNumber,tpAddressCommune,tpAddressQuartier,vatTaxPayer,ctTaxPayer,ltTaxPayer,
-        tpFiscalCenter,tpActivitySector, tpLegalForm, paymentType, customerName, invoiceSignature, invoiceSignatureDate,invoiceTotalItems, invoiceTotalAmount)
+        tpFiscalCenter,tpActivitySector, tpLegalForm, paymentType, customerName,"" ,invoiceSignature, invoiceSignatureDate,invoiceTotalItems, invoiceTotalAmount)
 
     }
 

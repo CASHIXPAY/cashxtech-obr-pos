@@ -69,6 +69,9 @@ data class Invoice(
     @ColumnInfo(name = "customer_name")
     val customerName:String,
 
+    @ColumnInfo(name = "invoice_ref")
+    var invoiceRef:String,
+
     @ColumnInfo(name = "invoice_signature")
     val invoiceSignature:String,
 

@@ -12,7 +12,7 @@ import com.gacoca.obr.model.invoice.dao.InvoiceDao
 
 @Database(
     entities = [Invoice::class,InvoiceItem::class],
-    version = 3,
+    version = 4,
     exportSchema = true
 )
 abstract class PosDatabase : RoomDatabase() {
