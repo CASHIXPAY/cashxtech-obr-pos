@@ -41,6 +41,11 @@ class InvoiceActivity : AppCompatActivity() {
         rvInvoiceItemListIM.layoutManager = LinearLayoutManager(this)
 
         val  invoice = invoiceWithItems.invoice
+
+        if(invoice.invoiceType == InvoiceType.RC.toString()){
+            btAnnulation.isEnabled = false
+            btReduction.isEnabled = false
+        }
         tvInvoiceNumberDynamic.text = invoice.invoiceNumber
         tvInvoiceTypeDynamic.text = invoice.invoiceType
         tvInvoiceDate.text = invoice.invoiceDate
@@ -49,22 +54,21 @@ class InvoiceActivity : AppCompatActivity() {
 
         btAnnulation.setOnClickListener {
 
-          val  invoiceDetails = InvoiceDetails()
+            val invoiceDetails = InvoiceDetails()
 
-            val cancelledInvoiceItemList = invoiceItemList
-
-            val cancelledInvoice = invoiceDetails.get(cancelledInvoiceItemList,InvoiceType.RC)
+            val cancelledInvoice = invoiceDetails.get(invoiceItemList, InvoiceType.RC)
 
             val invoiceRef = invoice.invoiceNumber
 
             cancelledInvoice.invoiceRef = invoiceRef
 
-            for(invoiceItem in cancelledInvoiceItemList){
+            for (invoiceItem in invoiceItemList) {
 
                 invoiceItem.id = 0
                 invoiceItem.invoiceNumber = cancelledInvoice.invoiceNumber
             }
-            val cancelledInvoiceWithItems = InvoiceWithItems(cancelledInvoice,cancelledInvoiceItemList)
+            val cancelledInvoiceWithItems =
+                InvoiceWithItems(cancelledInvoice, invoiceItemList)
             invoiceRepo.addInvoice(cancelledInvoiceWithItems)
 
 
