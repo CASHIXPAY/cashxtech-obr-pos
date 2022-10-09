@@ -27,8 +27,6 @@ i
 9app/src/main/java/com/gacoca/obr/activity/MainActivity.kt,5\8\58e09ae5febaafc03fc0e69b0b5437c3009a2787
 n
 >app/src/main/java/com/gacoca/obr/adapter/InvoiceItemAdapter.kt,0\8\087fc4d12c0e7724f1f7fe70586fc8fa9cb68fa2
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 p
 @app/src/main/java/com/gacoca/obr/model/invoice/dao/InvoiceDao.kt,a\c\ac5bc6840eb42f1dbcaf260d40dc535aa1e2829b
 p

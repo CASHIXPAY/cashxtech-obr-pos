@@ -1,5 +1,6 @@
 package com.gacoca.obr.activity.invoice
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -54,25 +55,48 @@ class InvoiceActivity : AppCompatActivity() {
 
         btAnnulation.setOnClickListener {
 
-            val invoiceDetails = InvoiceDetails()
-
-            val cancelledInvoice = invoiceDetails.get(invoiceItemList, InvoiceType.RC)
-
-            val invoiceRef = invoice.invoiceNumber
-
-            cancelledInvoice.invoiceRef = invoiceRef
-
-            for (invoiceItem in invoiceItemList) {
-
-                invoiceItem.id = 0
-                invoiceItem.invoiceNumber = cancelledInvoice.invoiceNumber
-            }
-            val cancelledInvoiceWithItems =
-                InvoiceWithItems(cancelledInvoice, invoiceItemList)
-            invoiceRepo.addInvoice(cancelledInvoiceWithItems)
-
+            cancelInvoice(invoiceWithItems)
 
         }
+
+        btReduction.setOnClickListener {
+            val intent = Intent(this, CancelnvoicePopUpWindow::class.java)
+            intent.putExtra("popuptitle", "Error")
+            intent.putExtra("popuptext", "Sorry, that email address is already used!")
+            intent.putExtra("popupbtn", "OK")
+            intent.putExtra("darkstatusbar", false)
+            startActivity(intent)
+        }
+
+    }
+
+    private fun cancelInvoice(invoiceWithItems: InvoiceWithItems){
+        val invoiceDetails = InvoiceDetails()
+
+        val invoiceItemList = invoiceWithItems.invoiceItems
+        val cancelledInvoice = invoiceDetails.get(invoiceItemList, InvoiceType.RC)
+
+        val invoice = invoiceWithItems.invoice
+        val invoiceRef = invoice.invoiceNumber
+
+        cancelledInvoice.invoiceRef = invoiceRef
+
+        for (invoiceItem in invoiceItemList) {
+
+            invoiceItem.id = 0
+            invoiceItem.invoiceNumber = cancelledInvoice.invoiceNumber
+        }
+
+        val cancelledInvoiceWithItems =
+            InvoiceWithItems(cancelledInvoice, invoiceItemList)
+
+        val appDb = PosDatabase.getDatabase(this)
+
+        val invoiceDao = appDb.invoiceDao()
+
+        val invoiceRepo = InvoiceRepository(invoiceDao)
+
+        invoiceRepo.addInvoice(cancelledInvoiceWithItems)
 
     }
 }

@@ -35,6 +35,9 @@
         <activity
             android:name=".activity.invoice.InvoiceActivity"
             android:screenOrientation="fullSensor" />
+        <activity
+            android:name=".activity.invoice.CancelnvoicePopUpWindow"
+            android:screenOrientation="fullSensor" />
     </application>
 
 </manifest>
