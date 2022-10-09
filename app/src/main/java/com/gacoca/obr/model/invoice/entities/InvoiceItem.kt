@@ -71,6 +71,7 @@ data class InvoiceItem(
         parcel.writeDouble(vat)
         parcel.writeDouble(itemPriceWvat)
         parcel.writeDouble(itemTotalAmount)
+
     }
 
     override fun describeContents(): Int {

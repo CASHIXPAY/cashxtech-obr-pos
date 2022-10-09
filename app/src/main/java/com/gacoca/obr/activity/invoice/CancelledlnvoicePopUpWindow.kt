@@ -10,9 +10,9 @@ import android.view.animation.DecelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.ColorUtils
 import com.gacoca.obr.R
-import kotlinx.android.synthetic.main.activity_pop_up_window.*
+import kotlinx.android.synthetic.main.activity_cancelled_invoice_pop_up_window.*
 
-class CancelnvoicePopUpWindow : AppCompatActivity() {
+class CancelledInvoicePopUpWindow : AppCompatActivity() {
 
     private var popupTitle = ""
     private var popupText = ""
@@ -21,7 +21,7 @@ class CancelnvoicePopUpWindow : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         overridePendingTransition(0, 0)
-        setContentView(R.layout.activity_cancel_pop_up_window)
+        setContentView(R.layout.activity_cancelled_invoice_pop_up_window)
 
         val bundle = intent.extras
         popupTitle = bundle?.getString("popuptitle", "Title") ?: ""

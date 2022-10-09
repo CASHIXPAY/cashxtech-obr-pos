@@ -33,4 +33,8 @@ interface InvoiceDao {
     @Transaction
     @Query("SELECT * FROM Invoice ORDER BY invoice_number DESC LIMIT 50")
     fun getLatestInvoices():List<Invoice>
+
+
+    @Query("SELECT EXISTS(SELECT * FROM invoice WHERE invoice_ref = :invoiceRef)")
+    fun isCancelledInvoiceExist(invoiceRef : String) : Boolean
 }

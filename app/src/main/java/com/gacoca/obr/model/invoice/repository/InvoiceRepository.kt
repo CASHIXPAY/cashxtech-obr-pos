@@ -38,4 +38,9 @@ class InvoiceRepository(private  val invoiceDao: InvoiceDao) {
 
         return invoiceDao.getInvoiceWithItems(invoiceNumber)
     }
+
+    fun isCancelledInvoiceExist(invoiceRef : String) : Boolean{
+
+        return invoiceDao.isCancelledInvoiceExist(invoiceRef)
+    }
 }

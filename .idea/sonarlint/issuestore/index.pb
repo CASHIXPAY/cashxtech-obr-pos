@@ -15,8 +15,6 @@ r
 Bapp/src/androidTest/java/com/gacoca/obr/ExampleInstrumentedTest.kt,f\7\f7aed13f466f20315e6c79b929742c2ede3e1689
 c
 3app/src/test/java/com/gacoca/obr/ExampleUnitTest.kt,0\1\01ef120daf19da1b3fde981da3ef5ea3ef004c47
-{
-Kapp/src/main/java/com/gacoca/obr/model/invoice/entities/InvoiceWithItems.kt,c\1\c16f98729b09b591b532f0e05b2d0d94dc9e250f
 @
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 <
@@ -28,11 +26,7 @@ i
 n
 >app/src/main/java/com/gacoca/obr/adapter/InvoiceItemAdapter.kt,0\8\087fc4d12c0e7724f1f7fe70586fc8fa9cb68fa2
 p
-@app/src/main/java/com/gacoca/obr/model/invoice/dao/InvoiceDao.kt,a\c\ac5bc6840eb42f1dbcaf260d40dc535aa1e2829b
-p
 @app/src/main/java/com/gacoca/obr/adapter/InvoiceItemAdapterIM.kt,a\8\a832db9f9a5b3534dae802b3159ec0b576dd25e9
-{
-Kapp/src/main/java/com/gacoca/obr/activity/invoice/InvoiceManagerActivity.kt,a\5\a5685a2a4cb0a44f69da68b0d40c641a4d540592
 o
 ?app/src/main/java/com/gacoca/obr/adapter/SavedInvoiceAdapter.kt,9\f\9ffe16df734c21ac0f7926b05de6f4390849a72d
 w

@@ -43,60 +43,48 @@ class InvoiceActivity : AppCompatActivity() {
 
         val  invoice = invoiceWithItems.invoice
 
-        if(invoice.invoiceType == InvoiceType.RC.toString()){
-            btAnnulation.isEnabled = false
-            btReduction.isEnabled = false
-        }
+
         tvInvoiceNumberDynamic.text = invoice.invoiceNumber
         tvInvoiceTypeDynamic.text = invoice.invoiceType
         tvInvoiceDate.text = invoice.invoiceDate
         tvNumberItemsDynamic.text = invoice.invoiceTotalItems.toString()
         tvTotalPriceDynamic.text = invoice.invoiceTotalAmount.toString()
 
+        var hasCancelledInvoice = false
+
+        if(invoice.invoiceType == InvoiceType.RC.toString()){
+            btAnnulation.isEnabled = false
+            btReduction.isEnabled = false
+        }else if(invoice.invoiceType == InvoiceType.FN.toString()){
+
+            hasCancelledInvoice = invoiceRepo.isCancelledInvoiceExist(invoice.invoiceNumber)
+        }
+
+
         btAnnulation.setOnClickListener {
 
-            cancelInvoice(invoiceWithItems)
+            if(!hasCancelledInvoice){
 
-        }
+                val intent = Intent(this, CancelInvoicePopUpWindow::class.java)
+                intent.putExtra("popuptitle", "Annulation Facture")
+                intent.putExtra("popuptext", "Etes vous sur de vouloir annuler cette facture")
+                intent.putExtra("InvoiceNumber",invoiceNumber)
+                intent.putExtra("darkstatusbar", false)
+                startActivity(intent)
+             //   cancelInvoice(invoiceWithItems)
+            } else{
 
-        btReduction.setOnClickListener {
-            val intent = Intent(this, CancelnvoicePopUpWindow::class.java)
-            intent.putExtra("popuptitle", "Error")
-            intent.putExtra("popuptext", "Sorry, that email address is already used!")
-            intent.putExtra("popupbtn", "OK")
-            intent.putExtra("darkstatusbar", false)
-            startActivity(intent)
+                val intent = Intent(this, CancelledInvoicePopUpWindow::class.java)
+                intent.putExtra("popuptitle", "Erreur")
+                intent.putExtra("popuptext", "Cette facture est deja annule!")
+                intent.putExtra("popupbtn", "OK")
+                intent.putExtra("darkstatusbar", false)
+                startActivity(intent)
+            }
+
+
         }
 
     }
 
-    private fun cancelInvoice(invoiceWithItems: InvoiceWithItems){
-        val invoiceDetails = InvoiceDetails()
-
-        val invoiceItemList = invoiceWithItems.invoiceItems
-        val cancelledInvoice = invoiceDetails.get(invoiceItemList, InvoiceType.RC)
-
-        val invoice = invoiceWithItems.invoice
-        val invoiceRef = invoice.invoiceNumber
-
-        cancelledInvoice.invoiceRef = invoiceRef
-
-        for (invoiceItem in invoiceItemList) {
-
-            invoiceItem.id = 0
-            invoiceItem.invoiceNumber = cancelledInvoice.invoiceNumber
-        }
-
-        val cancelledInvoiceWithItems =
-            InvoiceWithItems(cancelledInvoice, invoiceItemList)
-
-        val appDb = PosDatabase.getDatabase(this)
-
-        val invoiceDao = appDb.invoiceDao()
-
-        val invoiceRepo = InvoiceRepository(invoiceDao)
-
-        invoiceRepo.addInvoice(cancelledInvoiceWithItems)
-
-    }
 }
