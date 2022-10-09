@@ -2,7 +2,7 @@ package com.gacoca.obr.activity.pos
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Parcelable
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gacoca.obr.R
@@ -12,6 +12,7 @@ import com.gacoca.obr.adapter.InvoiceItemEncaisseAdapter
 import com.gacoca.obr.database.PosDatabase
 import com.gacoca.obr.model.invoice.entities.InvoiceItem
 import com.gacoca.obr.model.invoice.entities.InvoiceWithItems
+import com.gacoca.obr.model.invoice.enumeration.InvoiceType
 import com.gacoca.obr.model.invoice.logic.InvoiceDetails
 import com.gacoca.obr.model.invoice.repository.InvoiceRepository
 
@@ -50,7 +51,7 @@ class EncaisseActivity : AppCompatActivity() {
 
         btPay.setOnClickListener {
 
-            val invoice = invoiceDetails.get(invoiceItemList)
+            val invoice = invoiceDetails.get(invoiceItemList,InvoiceType.FN)
 
             for(invoiceItem in invoiceItemList){
 
@@ -67,6 +68,8 @@ class EncaisseActivity : AppCompatActivity() {
 
 
             val intent = Intent(this,MainActivity::class.java)
+
+
 
             startActivity(intent)
 

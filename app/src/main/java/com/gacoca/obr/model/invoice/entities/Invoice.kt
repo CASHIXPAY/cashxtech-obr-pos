@@ -69,11 +69,18 @@ data class Invoice(
     @ColumnInfo(name = "customer_name")
     val customerName:String,
 
+    @ColumnInfo(name = "invoice_ref")
+    var invoiceRef:String,
+
     @ColumnInfo(name = "invoice_signature")
     val invoiceSignature:String,
 
     @ColumnInfo(name = "invoice_signature_date")
     val invoiceSignatureDate: String,
+
+
+    @ColumnInfo(name = "invoice_total_items")
+    val invoiceTotalItems: Int,
 
     @ColumnInfo(name = "invoice_total_amount")
     val invoiceTotalAmount: Double

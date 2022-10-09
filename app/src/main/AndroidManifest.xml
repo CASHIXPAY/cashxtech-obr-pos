@@ -28,6 +28,19 @@
         <activity
             android:name=".activity.pos.EncaisseActivity"
             android:screenOrientation="fullSensor" />
+
+        <activity
+            android:name=".activity.invoice.InvoiceManagerActivity"
+            android:screenOrientation="fullSensor" />
+        <activity
+            android:name=".activity.invoice.InvoiceActivity"
+            android:screenOrientation="fullSensor" />
+        <activity
+            android:name=".activity.invoice.CancelledInvoicePopUpWindow"
+            android:screenOrientation="fullSensor" />
+        <activity
+            android:name=".activity.invoice.CancelInvoicePopUpWindow"
+            android:screenOrientation="fullSensor" />
     </application>
 
 </manifest>

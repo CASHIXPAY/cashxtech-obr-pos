@@ -18,4 +18,29 @@ class InvoiceRepository(private  val invoiceDao: InvoiceDao) {
             invoiceDao.insertInvoiceItem(invoiceItem)
         }
     }
+
+    fun getInvoices():List<Invoice>{
+
+        return invoiceDao.getInvoices()
+    }
+
+    fun getLatestInvoiceDates():List<String>{
+
+        return invoiceDao.getLatestInvoiceDates()
+    }
+
+    fun getLatestInvoices():List<Invoice>{
+
+        return invoiceDao.getLatestInvoices()
+    }
+
+    fun getInvoiceWithItems(invoiceNumber:String): InvoiceWithItems{
+
+        return invoiceDao.getInvoiceWithItems(invoiceNumber)
+    }
+
+    fun isCancelledInvoiceExist(invoiceRef : String) : Boolean{
+
+        return invoiceDao.isCancelledInvoiceExist(invoiceRef)
+    }
 }

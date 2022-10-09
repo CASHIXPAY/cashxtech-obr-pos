@@ -12,7 +12,7 @@ data class InvoiceItem(
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    val id: Int,
+    var id: Int,
 
     @ColumnInfo(name = "invoice_number_ref")
     var invoiceNumber: String?,
@@ -71,6 +71,7 @@ data class InvoiceItem(
         parcel.writeDouble(vat)
         parcel.writeDouble(itemPriceWvat)
         parcel.writeDouble(itemTotalAmount)
+
     }
 
     override fun describeContents(): Int {

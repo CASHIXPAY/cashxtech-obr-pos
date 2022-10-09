@@ -1,7 +1,5 @@
 package com.gacoca.obr.model.invoice.logic
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.gacoca.obr.model.invoice.entities.Invoice
 import com.gacoca.obr.model.invoice.entities.InvoiceItem
 import com.gacoca.obr.model.invoice.enumeration.InvoiceType
@@ -11,7 +9,7 @@ class InvoiceDetails() {
 
 
 
-    fun get( invoiceItems: List<InvoiceItem>):Invoice{
+    fun get( invoiceItems: List<InvoiceItem>,invoiceType: InvoiceType):Invoice{
 
         val  localDateTime = LocalDateTime.now();
 
@@ -20,8 +18,6 @@ class InvoiceDetails() {
         val invoiceLocalRef = getInvoiceNumberRef(localDateTime);
 
         val invoiceDate = localDateTime.toLocalDate().toString();
-
-        val invoiceType = InvoiceType.FN.toString();
 
         val tpType = "1";
 
@@ -57,6 +53,7 @@ class InvoiceDetails() {
 
         val invoiceSignatureDate = localDateTime.toString()
 
+        val invoiceTotalItems = invoiceItems.size
         var invoiceTotalAmount = 0.0;
 
         for(invoiceItem in invoiceItems){
@@ -66,9 +63,9 @@ class InvoiceDetails() {
 
 
 
-        return Invoice(0,invoiceNumber,invoiceLocalRef,invoiceDate,invoiceType,tpType,tpName,
+        return Invoice(0,invoiceNumber,invoiceLocalRef,invoiceDate,invoiceType.toString(),tpType,tpName,
         tpTIN,tpTradeNumber,tpPhoneNumber,tpAddressCommune,tpAddressQuartier,vatTaxPayer,ctTaxPayer,ltTaxPayer,
-        tpFiscalCenter,tpActivitySector, tpLegalForm, paymentType, customerName, invoiceSignature, invoiceSignatureDate, invoiceTotalAmount)
+        tpFiscalCenter,tpActivitySector, tpLegalForm, paymentType, customerName,"" ,invoiceSignature, invoiceSignatureDate,invoiceTotalItems, invoiceTotalAmount)
 
     }
 
