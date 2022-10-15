@@ -1,4 +1,4 @@
-package com.gacoca.obr.model.inventory
+package com.gacoca.obr.model.inventory.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
