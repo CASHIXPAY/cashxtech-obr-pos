@@ -20,11 +20,11 @@
         android:id="@+id/btAddProduct"
         android:layout_width="153dp"
         android:layout_height="160dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="148dp"
         android:layout_marginEnd="48dp"
         android:text="Add Product"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toEndOf="@+id/btAddCategory"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,7 +32,7 @@
         android:id="@+id/btListCategories"
         android:layout_width="153dp"
         android:layout_height="160dp"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="48dp"
         android:layout_marginTop="40dp"
         android:text="List Categories"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,10 +49,10 @@
         android:text="List Products"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.945"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/btListCategories"
         app:layout_constraintTop_toBottomOf="@+id/btAddProduct"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintVertical_bias="0.156" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

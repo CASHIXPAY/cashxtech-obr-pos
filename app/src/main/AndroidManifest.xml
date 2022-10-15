@@ -41,6 +41,10 @@
         <activity
             android:name=".activity.invoice.CancelInvoicePopUpWindow"
             android:screenOrientation="fullSensor" />
+
+        <activity
+            android:name=".activity.inventory.InventoryActivity"
+            android:screenOrientation="fullSensor" />
     </application>
 
 </manifest>

@@ -21,8 +21,6 @@ c
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 v
 Fapp/src/main/java/com/gacoca/obr/adapter/InvoiceItemEncaisseAdapter.kt,a\5\a5cfcd2fa42118967b96e3f4b2342635f2adafa6
-i
-9app/src/main/java/com/gacoca/obr/activity/MainActivity.kt,5\8\58e09ae5febaafc03fc0e69b0b5437c3009a2787
 n
 >app/src/main/java/com/gacoca/obr/adapter/InvoiceItemAdapter.kt,0\8\087fc4d12c0e7724f1f7fe70586fc8fa9cb68fa2
 p
