@@ -1,9 +1,11 @@
 package com.gacoca.obr.activity.inventory
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 import com.gacoca.obr.R
+import kotlinx.android.synthetic.main.activity_inventory_main.*
 
 
 class InventoryActivity : AppCompatActivity() {
@@ -13,5 +15,10 @@ class InventoryActivity : AppCompatActivity() {
         setContentView(R.layout.activity_inventory_main)
 
 
+        btAddCategory.setOnClickListener {
+
+            val  intent = Intent(this,CategoryActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

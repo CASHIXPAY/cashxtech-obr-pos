@@ -45,6 +45,10 @@
         <activity
             android:name=".activity.inventory.InventoryActivity"
             android:screenOrientation="fullSensor" />
+
+        <activity
+            android:name=".activity.inventory.CategoryActivity"
+            android:screenOrientation="fullSensor" />
     </application>
 
 </manifest>

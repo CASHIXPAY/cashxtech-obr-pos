@@ -26,6 +26,6 @@ interface InventoryDao {
 
     @Transaction
     @Query("SELECT * FROM Category")
-    fun getCategories()
+    fun getCategories(): List<Category>
 
 }
