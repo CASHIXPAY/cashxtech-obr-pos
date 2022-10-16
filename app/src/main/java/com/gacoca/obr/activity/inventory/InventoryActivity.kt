@@ -20,5 +20,11 @@ class InventoryActivity : AppCompatActivity() {
             val  intent = Intent(this,CategoryActivity::class.java)
             startActivity(intent)
         }
+
+        btAddProduct.setOnClickListener {
+
+            val intent = Intent(this,ProductActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

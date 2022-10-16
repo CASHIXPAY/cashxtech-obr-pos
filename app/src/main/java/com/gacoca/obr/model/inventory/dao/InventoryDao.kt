@@ -32,4 +32,7 @@ interface InventoryDao {
     @Query("DELETE FROM Category WHERE id = :id")
     fun deleteCategory(id:Int)
 
+    @Query("SELECT category_name FROM Category")
+    fun getCategoryNames():List<String>
+
 }

@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.gacoca.obr.R
 import com.gacoca.obr.model.inventory.entities.Category
-import kotlinx.android.synthetic.main.inventory_category_item.view.*
+import kotlinx.android.synthetic.main.activity_inventory_category_item.view.*
 
 class CategoryAdapter (private  val categoryItemList: MutableList<Category>) : RecyclerView.Adapter<CategoryAdapter.CategoryItemViewHolder>() {
 
@@ -19,7 +19,7 @@ class CategoryAdapter (private  val categoryItemList: MutableList<Category>) : R
 
 
             LayoutInflater.from(parent.context).inflate(
-                R.layout.inventory_category_item,parent,false)
+                R.layout.activity_inventory_category_item,parent,false)
         )
 
     }

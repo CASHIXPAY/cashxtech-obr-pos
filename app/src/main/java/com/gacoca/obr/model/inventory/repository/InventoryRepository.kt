@@ -2,6 +2,7 @@ package com.gacoca.obr.model.inventory.repository
 
 import com.gacoca.obr.model.inventory.dao.InventoryDao
 import com.gacoca.obr.model.inventory.entities.Category
+import com.gacoca.obr.model.inventory.entities.Product
 
 class InventoryRepository (private val inventoryDao: InventoryDao) {
 
@@ -23,4 +24,17 @@ class InventoryRepository (private val inventoryDao: InventoryDao) {
         }
 
     }
+
+    fun getCategoryNames():List<String>{
+
+        return inventoryDao.getCategoryNames()
+    }
+
+
+    fun saveProduct(product: Product){
+
+        inventoryDao.insertProduct(product)
+    }
+
+
 }

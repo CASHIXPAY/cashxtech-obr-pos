@@ -1,10 +1,7 @@
 package com.gacoca.obr.activity.inventory
 
-import android.content.DialogInterface
 import android.os.Bundle
-import android.text.InputType
-import android.view.LayoutInflater
-import android.view.View
+
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -16,7 +13,7 @@ import com.gacoca.obr.database.PosDatabase
 import com.gacoca.obr.model.inventory.entities.Category
 import com.gacoca.obr.model.inventory.repository.InventoryRepository
 import kotlinx.android.synthetic.main.activity_inventory_category_main.*
-import kotlinx.android.synthetic.main.activity_invoice_manager.*
+
 
 
 class CategoryActivity : AppCompatActivity() {
@@ -34,24 +31,20 @@ class CategoryActivity : AppCompatActivity() {
         categoryAdapter = CategoryAdapter(categoryItemList.toMutableList())
         rvCategoryItem.adapter = categoryAdapter
         rvCategoryItem.layoutManager = LinearLayoutManager(this)
-        /**val categoryName = etCategoryName.text.toString()
-
-        saveCategory(categoryName)
-        etCategoryName.text.clear()
-
-        val toast = Toast.makeText(this, "Category = $categoryName saved",Toast.LENGTH_SHORT)
-        toast.show() **/
-
         addCategoryDialog()
-        val toast = Toast.makeText(this, "Category saved",Toast.LENGTH_SHORT)
-        toast.show()
-
 
         btDeleteCategory.setOnClickListener {
 
             val categoryToRemoveList = categoryAdapter.getDeleteCategoryList()
-            removeCategories(categoryToRemoveList)
-            categoryAdapter.deleteCategoryItem()
+
+            if(categoryToRemoveList.isEmpty()){
+                val toast = Toast.makeText(this, "Please select a category",Toast.LENGTH_SHORT)
+                toast.show()
+            }else{
+                removeCategories(categoryToRemoveList)
+                categoryAdapter.deleteCategoryItem()
+            }
+
         }
 
 
@@ -64,17 +57,17 @@ class CategoryActivity : AppCompatActivity() {
 
             val builder = AlertDialog.Builder(this)
             val inflater = layoutInflater
-            val dialogLayout = inflater.inflate(R.layout.add_category_name,null)
+            val dialogLayout = inflater.inflate(R.layout.activity_inventory_add_category_name,null)
             val  addCategory = dialogLayout.findViewById<EditText>(R.id.etCategoryName)
 
             with(builder){
                 setTitle("Enter Category Name")
-                setPositiveButton("Add"){dialog,which ->
+                setPositiveButton("Add"){ _, _ ->
 
                  val category =    saveCategory(addCategory.text.toString())
                     categoryAdapter.addCategoryItem(category)
                 }
-                setNegativeButton("Cancel"){dialog,which ->
+                setNegativeButton("Cancel"){_,_ ->
 
                 }
 
