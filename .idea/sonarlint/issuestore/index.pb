@@ -39,7 +39,5 @@ i
 Napp/src/main/java/com/gacoca/obr/model/invoice/repository/InvoiceRepository.kt,9\5\9523a5230fcbf3ab36f0b8e17472db179093cccd
 l
 <app/src/main/java/com/gacoca/obr/activity/pos/PosActivity.kt,3\1\31b68b29bfb214e3142641bcae65b6661dd06bcb
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 h
 8app/src/main/java/com/gacoca/obr/database/PosDatabase.kt,7\6\7631695d995c8ee0444106e7eb20454cd6e0c873
