@@ -9,4 +9,18 @@ class InventoryRepository (private val inventoryDao: InventoryDao) {
 
         inventoryDao.insertCategory(category)
     }
+
+    fun getCategories():List<Category>{
+
+        return inventoryDao.getCategories()
+    }
+
+    fun removeCategory(categoryList: List<Category>){
+
+        for(category in categoryList){
+
+            inventoryDao.deleteCategory(category.id)
+        }
+
+    }
 }

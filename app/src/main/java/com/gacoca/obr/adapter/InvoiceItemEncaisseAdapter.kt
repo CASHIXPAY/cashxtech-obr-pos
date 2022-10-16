@@ -34,8 +34,6 @@ class InvoiceItemEncaisseAdapter(private val invoiceItemList: MutableList<Invoic
             tvItemQuantity.text = curInvoiceItem.itemQuantity.toString()
             tvItemPrice.text = curInvoiceItem.itemTotalAmount.toString()
 
-
-
         }
     }
 

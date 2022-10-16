@@ -21,7 +21,25 @@ c
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 p
 @app/src/main/java/com/gacoca/obr/adapter/InvoiceItemAdapterIM.kt,a\8\a832db9f9a5b3534dae802b3159ec0b576dd25e9
-o
-?app/src/main/java/com/gacoca/obr/adapter/SavedInvoiceAdapter.kt,9\f\9ffe16df734c21ac0f7926b05de6f4390849a72d
 w
 Gapp/src/main/java/com/gacoca/obr/adapter/SavedInvoicedDetailsAdapter.kt,9\7\97e0412d32eec1dedade8baeb7b24486279fa730
+v
+Fapp/src/main/java/com/gacoca/obr/model/invoice/entities/InvoiceItem.kt,9\a\9a0168be460f143f1285358fba82b4cb711991b4
+{
+Kapp/src/main/java/com/gacoca/obr/model/invoice/entities/InvoiceWithItems.kt,c\1\c16f98729b09b591b532f0e05b2d0d94dc9e250f
+r
+Bapp/src/main/java/com/gacoca/obr/model/invoice/entities/Invoice.kt,f\7\f771f0ef823a753138f912f9713e790bfb319436
+t
+Dapp/src/main/java/com/gacoca/obr/model/inventory/entities/Product.kt,b\f\bff34f97e8fd9e0ed00e0aae2bb24b8194f88264
+p
+@app/src/main/java/com/gacoca/obr/model/invoice/dao/InvoiceDao.kt,a\c\ac5bc6840eb42f1dbcaf260d40dc535aa1e2829b
+i
+9app/src/main/java/com/gacoca/obr/activity/MainActivity.kt,5\8\58e09ae5febaafc03fc0e69b0b5437c3009a2787
+~
+Napp/src/main/java/com/gacoca/obr/model/invoice/repository/InvoiceRepository.kt,9\5\9523a5230fcbf3ab36f0b8e17472db179093cccd
+l
+<app/src/main/java/com/gacoca/obr/activity/pos/PosActivity.kt,3\1\31b68b29bfb214e3142641bcae65b6661dd06bcb
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+h
+8app/src/main/java/com/gacoca/obr/database/PosDatabase.kt,7\6\7631695d995c8ee0444106e7eb20454cd6e0c873
