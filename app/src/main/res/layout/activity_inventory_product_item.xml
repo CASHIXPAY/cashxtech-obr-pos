@@ -8,10 +8,10 @@
     android:paddingEnd="8dp">
 
     <TextView
-        android:id="@+id/tvCategoryItem"
+        android:id="@+id/tvProductItem"
         android:layout_width="0dp"
         android:layout_height="25dp"
-        android:text="Category name"
+        android:text="Product name"
         app:layout_constraintEnd_toStartOf="@+id/cbSelect"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintTop_toTopOf="parent"

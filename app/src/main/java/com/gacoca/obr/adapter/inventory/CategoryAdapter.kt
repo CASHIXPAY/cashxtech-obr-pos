@@ -1,4 +1,4 @@
-package com.gacoca.obr.adapter
+package com.gacoca.obr.adapter.inventory
 
 import android.graphics.Paint
 import android.view.LayoutInflater

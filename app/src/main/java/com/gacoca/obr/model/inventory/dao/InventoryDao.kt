@@ -35,4 +35,11 @@ interface InventoryDao {
     @Query("SELECT category_name FROM Category")
     fun getCategoryNames():List<String>
 
+    @Query("SELECT EXISTS(SELECT * FROM product WHERE product_name = :productName)")
+    fun isProductExist(productName : String) : Boolean
+
+    @Transaction
+    @Query("DELETE FROM Product WHERE id = :id")
+    fun deleteProduct(id:Int)
+
 }

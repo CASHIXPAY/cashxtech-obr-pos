@@ -9,6 +9,7 @@
         android:id="@+id/tilProductName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="20dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -24,13 +25,14 @@
         android:layout_width="411dp"
         android:layout_height="56dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginVertical="20dp"
         app:layout_constraintTop_toBottomOf="@+id/tilProductName">
 
         <AutoCompleteTextView
             android:id="@+id/autoCompleteCategory"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
             android:hint="Select Category"
             android:textColorHint="#616161" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -40,6 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tilCategory"
+        android:layout_marginVertical="20dp"
         tools:layout_editor_absoluteX="0dp">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -53,10 +56,11 @@
         android:id="@+id/tilBarcode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilPrice"
-        app:layout_constraintVertical_bias="0.319"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintVertical_bias="0.059"
+        tools:layout_editor_absoluteX="-16dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etBarcode"
@@ -64,7 +68,6 @@
             android:layout_height="wrap_content"
             android:hint="Enter BarCode"
             android:textColorHint="#616161" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

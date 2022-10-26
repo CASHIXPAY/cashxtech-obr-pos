@@ -1,47 +1,75 @@
 package com.gacoca.obr.activity.inventory
 
-
-import android.graphics.Color
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
+import android.widget.Toast
+
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.gacoca.obr.R
+import com.gacoca.obr.adapter.inventory.ProductAdapter
 import com.gacoca.obr.database.PosDatabase
+import com.gacoca.obr.model.inventory.entities.Category
+
 import com.gacoca.obr.model.inventory.entities.Product
 
 import com.gacoca.obr.model.inventory.repository.InventoryRepository
-import kotlinx.android.synthetic.main.activity_inventory_add_product_item.*
+
+import kotlinx.android.synthetic.main.activity_inventory_product_main.*
 
 
 class ProductActivity  : AppCompatActivity(){
 
+    private lateinit var  productAdapter: ProductAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_inventory_add_product_item)
+        setContentView(R.layout.activity_inventory_product_main)
 
-        val categoryList = getCategoryNames()
-        val adapter = ArrayAdapter(this, android.R.layout.select_dialog_item, categoryList.toTypedArray())
-        val category = findViewById<View>(R.id.autoCompleteCategory) as AutoCompleteTextView
-        category.threshold = 1 //will start working from first character
-        category.setAdapter(adapter) //setting the adapter data into the AutoCompleteTextView
-        category.setTextColor(Color.RED)
+        val productItemList = getProducts()
 
-        btSaveProduct.setOnClickListener {
+        productAdapter = ProductAdapter(productItemList.toMutableList())
+        rvProductItem.adapter = productAdapter
+        rvProductItem.layoutManager = LinearLayoutManager(this)
 
-            val productName = etProductName.text.toString()
-            val categoryName:String = category.text.toString()
+        btAddProduct.setOnClickListener {
 
-            val price:Double = etPrice.text.toString().toDouble()
-
-            val barCode:String = etBarcode.text.toString()
-
-            saveProduct(productName,categoryName,price,barCode)
+            val  intent = Intent(this,AddProductActivity::class.java)
+            startActivity(intent)
         }
+
+        btDeleteProduct.setOnClickListener {
+
+            val productToRemoveList = productAdapter.getDeleteProductList()
+
+            println(productToRemoveList.size)
+            if(productToRemoveList.isEmpty()){
+                val toast = Toast.makeText(this, "Please select a product", Toast.LENGTH_SHORT)
+                toast.show()
+            }else{
+                removeProduct(productToRemoveList)
+                productAdapter.deleteProductItem()
+            }
+        }
+
+
+        }
+
+
+    private fun removeProduct(productList: List<Product>){
+
+        val inventoryRepo = getInventoryRepo()
+
+        inventoryRepo.removeProduct(productList)
     }
 
-    private fun getInventoryRepo(): InventoryRepository {
+    private fun  getProducts():List<Product>{
+
+        val inventoryRepo = getInventoryRepo()
+
+        return inventoryRepo.listProducts()
+
+    }
+    private fun getInventoryRepo(): InventoryRepository{
         val appDb = PosDatabase.getDatabase(this)
 
         val inventoryDao = appDb.inventoryDao()
@@ -49,24 +77,5 @@ class ProductActivity  : AppCompatActivity(){
         return InventoryRepository(inventoryDao)
 
     }
-
-    private fun saveProduct(productName:String,categoryName:String,price:Double,barCode:String){
-
-        val product = Product(0,categoryName,productName,price, barCode ,"pcs")
-
-        val inventoryRepo = getInventoryRepo()
-
-        inventoryRepo.saveProduct(product)
-    }
-
-    private fun getCategoryNames():List<String>{
-
-        val inventoryRepo = getInventoryRepo()
-
-        return inventoryRepo.getCategoryNames()
-
-    }
-
-
 
 }

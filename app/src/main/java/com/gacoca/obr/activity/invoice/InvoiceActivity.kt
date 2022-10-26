@@ -5,12 +5,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gacoca.obr.R
-import com.gacoca.obr.adapter.InvoiceItemAdapterIM
+import com.gacoca.obr.adapter.invoice.InvoiceItemAdapterIM
 
 import com.gacoca.obr.database.PosDatabase
-import com.gacoca.obr.model.invoice.entities.InvoiceWithItems
 import com.gacoca.obr.model.invoice.enumeration.InvoiceType
-import com.gacoca.obr.model.invoice.logic.InvoiceDetails
 
 import com.gacoca.obr.model.invoice.repository.InvoiceRepository
 import kotlinx.android.synthetic.main.activity_invoice.*

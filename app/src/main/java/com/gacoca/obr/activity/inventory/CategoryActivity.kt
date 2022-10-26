@@ -8,7 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gacoca.obr.R
-import com.gacoca.obr.adapter.CategoryAdapter
+import com.gacoca.obr.adapter.inventory.CategoryAdapter
 import com.gacoca.obr.database.PosDatabase
 import com.gacoca.obr.model.inventory.entities.Category
 import com.gacoca.obr.model.inventory.repository.InventoryRepository
@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_inventory_category_main.*
 class CategoryActivity : AppCompatActivity() {
 
 
-    private lateinit var categoryAdapter:  CategoryAdapter
+    private lateinit var categoryAdapter: CategoryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

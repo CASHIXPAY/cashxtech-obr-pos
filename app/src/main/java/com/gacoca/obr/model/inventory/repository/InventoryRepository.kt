@@ -36,5 +36,21 @@ class InventoryRepository (private val inventoryDao: InventoryDao) {
         inventoryDao.insertProduct(product)
     }
 
+    fun isProductExist(productName:String):Boolean{
+        return inventoryDao.isProductExist(productName)
+    }
+
+
+    fun listProducts():List<Product>{
+
+        return inventoryDao.getProducts()
+    }
+
+    fun removeProduct(productList: List<Product>){
+        for(product in productList){
+            inventoryDao.deleteProduct(product.id)
+        }
+    }
+
 
 }

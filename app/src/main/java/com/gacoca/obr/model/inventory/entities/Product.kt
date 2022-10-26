@@ -2,6 +2,7 @@ package com.gacoca.obr.model.inventory.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
 
@@ -27,4 +28,8 @@ data class Product(
     @ColumnInfo(name = "product_unit")
     val productUnit: String
 
-)
+){
+
+    @Ignore
+    var checked: Boolean = false
+}

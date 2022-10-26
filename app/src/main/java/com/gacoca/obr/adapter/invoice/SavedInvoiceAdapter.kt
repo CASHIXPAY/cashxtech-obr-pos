@@ -1,6 +1,5 @@
-package com.gacoca.obr.adapter
+package com.gacoca.obr.adapter.invoice
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gacoca.obr.R
 import com.gacoca.obr.model.invoice.entities.Invoice
 import kotlinx.android.synthetic.main.header_invoice_saved_list.view.*
-import kotlinx.android.synthetic.main.invoice_saved_list.view.*
 
 class SavedInvoiceAdapter (private val groupedInvoicedMap: LinkedHashMap<String,List<Invoice>>) : RecyclerView.Adapter<SavedInvoiceAdapter.InvoiceViewHolder>() {
 
