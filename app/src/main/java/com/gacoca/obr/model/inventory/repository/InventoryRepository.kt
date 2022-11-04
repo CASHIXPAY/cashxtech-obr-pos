@@ -30,6 +30,10 @@ class InventoryRepository (private val inventoryDao: InventoryDao) {
         return inventoryDao.getCategoryNames()
     }
 
+    fun isCategoryExist(categoryName:String):Boolean{
+        return inventoryDao.isCategoryExist(categoryName)
+    }
+
 
     fun saveProduct(product: Product){
 

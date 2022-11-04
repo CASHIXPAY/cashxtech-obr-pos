@@ -2,14 +2,9 @@ package com.gacoca.obr.activity.inventory
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
-import androidx.activity.result.ActivityResultLauncher
+
 import androidx.appcompat.app.AppCompatActivity
 import com.gacoca.obr.R
-import com.journeyapps.barcodescanner.CaptureActivity
-import com.journeyapps.barcodescanner.ScanContract
-import com.journeyapps.barcodescanner.ScanIntentResult
-import com.journeyapps.barcodescanner.ScanOptions
 import kotlinx.android.synthetic.main.activity_inventory_main.*
 
 

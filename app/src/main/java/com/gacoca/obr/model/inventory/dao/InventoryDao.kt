@@ -35,6 +35,9 @@ interface InventoryDao {
     @Query("SELECT category_name FROM Category")
     fun getCategoryNames():List<String>
 
+    @Query("SELECT EXISTS(SELECT * FROM category WHERE category_name = :categoryName)")
+    fun isCategoryExist(categoryName : String) : Boolean
+
     @Query("SELECT EXISTS(SELECT * FROM product WHERE product_name = :productName)")
     fun isProductExist(productName : String) : Boolean
 
