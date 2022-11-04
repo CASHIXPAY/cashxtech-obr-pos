@@ -1,5 +1,6 @@
 package com.gacoca.obr.activity.inventory
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 
 import android.widget.EditText
@@ -51,6 +52,7 @@ class CategoryActivity : AppCompatActivity() {
     }
 
 
+  @SuppressLint("SuspiciousIndentation")
   private  fun addCategoryDialog(){
 
         btAddCategory.setOnClickListener{
@@ -64,8 +66,16 @@ class CategoryActivity : AppCompatActivity() {
                 setTitle("Enter Category Name")
                 setPositiveButton("Add"){ _, _ ->
 
-                 val category =    saveCategory(addCategory.text.toString())
-                    categoryAdapter.addCategoryItem(category)
+                  val categoryName:String= addCategory.text.toString()
+
+                    if(!categoryExist(categoryName)&& categoryName.isNotEmpty()){
+                        val category =    saveCategory(categoryName)
+                        categoryAdapter.addCategoryItem(category)
+                    }else{
+
+                        showCategoryNotAddedMessage(categoryName,categoryName.isNotEmpty())
+                    }
+
                 }
                 setNegativeButton("Cancel"){_,_ ->
 
@@ -75,6 +85,17 @@ class CategoryActivity : AppCompatActivity() {
                 show()
             }
 
+
+        }
+
+    }
+
+    private fun showCategoryNotAddedMessage(categoryName: String,categoryNameBlank:Boolean){
+
+        if(!categoryNameBlank){
+            Toast.makeText(this, "Please specify a category name", Toast.LENGTH_SHORT).show()
+        }else {
+            Toast.makeText(this, "Category $categoryName already exist", Toast.LENGTH_SHORT).show()
         }
 
     }
@@ -97,6 +118,10 @@ class CategoryActivity : AppCompatActivity() {
 
     }
 
+    private fun categoryExist(categoryName: String):Boolean{
+        val inventoryRepo = getInventoryRepo()
+        return inventoryRepo.isCategoryExist(categoryName.uppercase())
+    }
     private fun removeCategories(categoryList: List<Category>){
 
         val inventoryRepo = getInventoryRepo()
