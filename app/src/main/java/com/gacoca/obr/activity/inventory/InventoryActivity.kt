@@ -31,13 +31,6 @@ class InventoryActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        btListProduct.setOnClickListener {
-
-            scanCode()
-        }
-
-
-
         btAddProduct.setOnClickListener {
 
             val intent = Intent(this,ProductActivity::class.java)
@@ -45,26 +38,4 @@ class InventoryActivity : AppCompatActivity() {
         }
     }
 
-    private fun scanCode() {
-
-        val options = ScanOptions()
-
-        options.setPrompt("vOLUM")
-        options.setBeepEnabled(true)
-        options.setOrientationLocked(true)
-        options.captureActivity = CaptureActivity::class.java
-        barcodeLauncher.launch(options)
-    }
-
-
-    private val barcodeLauncher = registerForActivityResult(
-        ScanContract()
-    ) { result: ScanIntentResult ->
-        if (result.contents == null) {
-            Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show()
-        } else {
-            Toast.makeText(this, "Scanned: " + result.contents, Toast.LENGTH_LONG)
-                .show()
-        }
-    }
 }

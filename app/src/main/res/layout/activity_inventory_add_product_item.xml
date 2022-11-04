@@ -65,9 +65,16 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etBarcode"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:hint="Enter BarCode"
             android:textColorHint="#616161" />
+
+        <Button
+            android:id="@+id/btScanBarcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Scan Barcode" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
