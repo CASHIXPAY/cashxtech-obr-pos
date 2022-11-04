@@ -95,13 +95,17 @@ class CategoryActivity : AppCompatActivity() {
         if(!categoryNameBlank){
             Toast.makeText(this, "Please specify a category name", Toast.LENGTH_SHORT).show()
         }else {
-            Toast.makeText(this, "Category $categoryName already exist", Toast.LENGTH_SHORT).show()
+
+            Toast.makeText(this, "Category ${categoryName.uppercase().replace("\\s+".toRegex()," ")} already exist", Toast.LENGTH_SHORT).show()
+        //    Toast.makeText(this, "Category $categoryName already exist", Toast.LENGTH_SHORT).show()
         }
 
     }
     private fun saveCategory(categoryName:String):Category{
 
-        val category = Category(0,categoryName.uppercase())
+        val category = Category(0,categoryName.uppercase().replace("\\s+".toRegex()," "))
+
+
 
         val inventoryRepo = getInventoryRepo()
 
@@ -120,7 +124,8 @@ class CategoryActivity : AppCompatActivity() {
 
     private fun categoryExist(categoryName: String):Boolean{
         val inventoryRepo = getInventoryRepo()
-        return inventoryRepo.isCategoryExist(categoryName.uppercase())
+
+        return inventoryRepo.isCategoryExist(categoryName.uppercase().uppercase().replace("\\s+".toRegex()," "))
     }
     private fun removeCategories(categoryList: List<Category>){
 

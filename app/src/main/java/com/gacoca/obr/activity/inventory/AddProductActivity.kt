@@ -78,7 +78,7 @@ class AddProductActivity : AppCompatActivity() {
     ) {
 
 
-        val product = Product(0, categoryName, productName.uppercase(), price, barCode, "pcs")
+        val product = Product(0, categoryName, productName.uppercase().replace("\\s+".toRegex()," "), price, barCode, "pcs")
 
         val inventoryRepo = getInventoryRepo()
 
@@ -96,7 +96,7 @@ class AddProductActivity : AppCompatActivity() {
     private fun productExist(productName: String): Boolean {
         val inventoryRepo = getInventoryRepo()
 
-        return inventoryRepo.isProductExist(productName)
+        return inventoryRepo.isProductExist(productName.uppercase().replace("\\s+".toRegex()," "))
 
     }
 
