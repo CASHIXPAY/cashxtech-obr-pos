@@ -56,5 +56,16 @@ class InventoryRepository (private val inventoryDao: InventoryDao) {
         }
     }
 
+    fun getProductByName(productName: String):Product{
+
+        return inventoryDao.getProductByName(productName)
+
+    }
+
+    fun updateProduct(product: Product){
+
+        inventoryDao.updateProduct(product)
+    }
+
 
 }

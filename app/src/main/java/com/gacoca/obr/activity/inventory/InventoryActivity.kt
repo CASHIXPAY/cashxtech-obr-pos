@@ -11,10 +11,6 @@ import kotlinx.android.synthetic.main.activity_inventory_main.*
 class InventoryActivity : AppCompatActivity() {
 
 
-    companion object {
-        const val RESULT = "RESULT"
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inventory_main)
@@ -29,6 +25,11 @@ class InventoryActivity : AppCompatActivity() {
         btAddProduct.setOnClickListener {
 
             val intent = Intent(this,ProductActivity::class.java)
+            startActivity(intent)
+        }
+
+        btListProduct.setOnClickListener{
+            val intent = Intent(this,ProductDetailActivity::class.java)
             startActivity(intent)
         }
     }

@@ -14,19 +14,19 @@ data class Product(
     val id: Int,
 
     @ColumnInfo(name = "category_name")
-    val categoryName: String,
+    var categoryName: String,
 
     @ColumnInfo(name = "product_name")
-    val productName: String,
+    var productName: String,
 
     @ColumnInfo(name = "product_price")
-    val productPrice: Double,
+    var productPrice: Double,
 
     @ColumnInfo(name = "product_code")
-    val productCode: String,
+    var productCode: String,
 
     @ColumnInfo(name = "product_unit")
-    val productUnit: String
+    var productUnit: String
 
 ){
 

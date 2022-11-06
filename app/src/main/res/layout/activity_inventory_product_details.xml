@@ -53,7 +53,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="100dp"
         android:text="Product Unit :"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/btModify"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -71,18 +71,18 @@
         app:layout_constraintStart_toEndOf="@+id/tvProductName" />
 
     <EditText
-        android:id="@+id/edProductCode"
+        android:id="@+id/edProductPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
         android:layout_marginBottom="24dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName4"
+        app:layout_constraintBottom_toTopOf="@+id/edBarCode"
         app:layout_constraintStart_toEndOf="@+id/tvProductPrice" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/edBarCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
@@ -116,7 +116,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btModify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -142,7 +142,7 @@
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="12dp"
         android:text="Select Category"
-        app:layout_constraintBottom_toTopOf="@+id/edProductCode"
+        app:layout_constraintBottom_toTopOf="@+id/edProductPrice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.988"
         app:layout_constraintStart_toEndOf="@+id/tvCategory" />

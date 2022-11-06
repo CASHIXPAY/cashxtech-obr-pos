@@ -20,6 +20,9 @@ interface InventoryDao {
     @Query("SELECT * FROM Product")
     fun getProducts(): List<Product>
 
+    @Query("SELECT * FROM Product WHERE product_name = :productName")
+    fun getProductByName(productName: String): Product
+
     @Transaction
     @Query("SELECT * FROM Product WHERE category_name = :categoryName")
     fun getProductsByCategory(categoryName:String): List<Product>
@@ -44,5 +47,9 @@ interface InventoryDao {
     @Transaction
     @Query("DELETE FROM Product WHERE id = :id")
     fun deleteProduct(id:Int)
+
+    @Transaction
+    @Update
+    fun updateProduct(product: Product)
 
 }

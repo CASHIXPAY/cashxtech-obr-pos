@@ -1,5 +1,6 @@
 package com.gacoca.obr.adapter.inventory
 
+import android.content.Intent
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
@@ -7,11 +8,15 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.gacoca.obr.R
+import com.gacoca.obr.activity.inventory.ProductDetailActivity
+import com.gacoca.obr.activity.invoice.InvoiceActivity
 import com.gacoca.obr.model.inventory.entities.Category
 import com.gacoca.obr.model.inventory.entities.Product
 
 import kotlinx.android.synthetic.main.activity_inventory_category_item.view.cbSelect
 import kotlinx.android.synthetic.main.activity_inventory_product_item.view.*
+import kotlinx.android.synthetic.main.activity_inventory_product_item.view.btDetails
+import kotlinx.android.synthetic.main.invoice_saved_list.view.*
 
 class ProductAdapter (private  val productItemList: MutableList<Product>) : RecyclerView.Adapter<ProductAdapter.ProductItemViewHolder>() {
 
@@ -37,6 +42,17 @@ class ProductAdapter (private  val productItemList: MutableList<Product>) : Recy
             cbSelect.setOnCheckedChangeListener{_,isChecked ->
                 toggleStrikeThrough(tvProductItem,isChecked)
                 curProductItem.checked = !curProductItem.checked
+
+
+            }
+
+            btDetails.setOnClickListener {
+
+                val intent = Intent(holder.itemView.context, ProductDetailActivity::class.java)
+
+                 intent.putExtra("ProductName",curProductItem.productName)
+
+                holder.itemView.context.startActivity(intent)
             }
 
         }
