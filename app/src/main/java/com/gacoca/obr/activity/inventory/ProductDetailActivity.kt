@@ -1,6 +1,7 @@
 package com.gacoca.obr.activity.inventory
 
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -28,7 +29,7 @@ class ProductDetailActivity  : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inventory_product_details)
 
-        val productName = intent.getStringExtra("ProductName")
+        var productName = intent.getStringExtra("ProductName")
 
 
         val product = productName?.let { getProduct(it) }
@@ -58,13 +59,21 @@ class ProductDetailActivity  : AppCompatActivity() {
         btUpdate.setOnClickListener{
 
             if (product != null) {
-                product.productName = edProductName.text.toString()
-                product.categoryName = autoCompleteCategory.text.toString()
-                product.productPrice = edProductPrice.text.toString().toDouble()
-                product.productCode = edBarCode.text.toString()
-                product.productUnit = edProductUnit.text.toString()
+                productName = edProductName.text.toString().uppercase().replace("\\s+".toRegex()," ")
+                if(!productExist(productName!!)){
+                    updateProduct(product)
 
-                updateProduct(product)
+                    enableEdits(false)
+
+                    val  intent = Intent(this,ProductActivity::class.java)
+                    startActivity(intent)
+                } else {
+
+                    val toast =
+                        Toast.makeText(this, "Product $productName already exist", Toast.LENGTH_SHORT)
+                    toast.show()
+                }
+
 
             }
         }
@@ -80,6 +89,7 @@ class ProductDetailActivity  : AppCompatActivity() {
 
 
         }
+
 
 
 
@@ -99,13 +109,20 @@ class ProductDetailActivity  : AppCompatActivity() {
         edBarCode.isEnabled = isEnable
         edProductUnit.isEnabled = isEnable
         btScanBarcode.isEnabled = isEnable
+        btUpdate.isEnabled = isEnable
     }
 
     private fun  updateProduct(product: Product){
 
         val inventoryRepo = getInventoryRepo()
 
-        return inventoryRepo.updateProduct(product)
+        product.productName = edProductName.text.toString().uppercase().replace("\\s+".toRegex()," ")
+        product.categoryName = autoCompleteCategory.text.toString()
+        product.productPrice = edProductPrice.text.toString().toDouble()
+        product.productCode = edBarCode.text.toString()
+        product.productUnit = edProductUnit.text.toString()
+
+        inventoryRepo.updateProduct(product)
 
     }
     private fun  getProduct(productName: String):Product{
@@ -113,6 +130,13 @@ class ProductDetailActivity  : AppCompatActivity() {
         val inventoryRepo = getInventoryRepo()
 
         return inventoryRepo.getProductByName(productName)
+
+    }
+
+    private fun productExist(productName: String): Boolean {
+        val inventoryRepo = getInventoryRepo()
+
+        return inventoryRepo.isProductExist(productName.uppercase().replace("\\s+".toRegex()," "))
 
     }
 
