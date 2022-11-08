@@ -79,7 +79,13 @@ class ProductDetailActivity  : AppCompatActivity() {
         }
         btModify.setOnClickListener{
 
-            enableEdits(true)
+            if(noCategoryExist()){
+                val toast = Toast.makeText(this, "Please add a category first", Toast.LENGTH_SHORT)
+                toast.show()
+            }else{
+                enableEdits(true)
+            }
+
         }
 
         btScanBarcode.setOnClickListener{
@@ -92,6 +98,11 @@ class ProductDetailActivity  : AppCompatActivity() {
 
 
 
+    private fun noCategoryExist():Boolean{
+        val inventoryRepo = getInventoryRepo()
+
+        return  inventoryRepo.getCategories().isEmpty()
+    }
 
     private fun getCategoryNames(): List<String> {
 

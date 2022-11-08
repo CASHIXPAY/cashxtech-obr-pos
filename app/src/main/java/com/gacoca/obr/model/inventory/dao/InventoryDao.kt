@@ -52,4 +52,6 @@ interface InventoryDao {
     @Update
     fun updateProduct(product: Product)
 
+
+
 }

@@ -33,15 +33,20 @@ class ProductActivity  : AppCompatActivity(){
 
         btAddProduct.setOnClickListener {
 
-            val  intent = Intent(this,AddProductActivity::class.java)
-            startActivity(intent)
+            if(!noCategoryExist()){
+                val  intent = Intent(this,AddProductActivity::class.java)
+                startActivity(intent)
+            }else {
+                val toast = Toast.makeText(this, "Please add a category first", Toast.LENGTH_SHORT)
+                toast.show()
+            }
+
         }
 
         btDeleteProduct.setOnClickListener {
 
             val productToRemoveList = productAdapter.getDeleteProductList()
 
-            println(productToRemoveList.size)
             if(productToRemoveList.isEmpty()){
                 val toast = Toast.makeText(this, "Please select a product", Toast.LENGTH_SHORT)
                 toast.show()
@@ -55,6 +60,11 @@ class ProductActivity  : AppCompatActivity(){
         }
 
 
+    private fun noCategoryExist():Boolean{
+        val inventoryRepo = getInventoryRepo()
+
+        return  inventoryRepo.getCategories().isEmpty()
+    }
     private fun removeProduct(productList: List<Product>){
 
         val inventoryRepo = getInventoryRepo()
