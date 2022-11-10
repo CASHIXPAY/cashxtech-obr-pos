@@ -19,13 +19,13 @@ class CategoryUpdateActivity: AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inventory_category_modify_item)
 
-        val categoryName = intent.getStringExtra("CategoryName")
+        val oldCategoryName = intent.getStringExtra("CategoryName")
 
 
-        val category = categoryName?.let { getCategory(it) }
+        val category = oldCategoryName?.let { getCategory(it) }
 
         etCurrentCategory.isEnabled = false
-        etCurrentCategory.setText(categoryName)
+        etCurrentCategory.setText(oldCategoryName)
 
         btUpdate.setOnClickListener {
 
@@ -35,12 +35,13 @@ class CategoryUpdateActivity: AppCompatActivity(){
                 if(!categoryExist(newCategoryName)){
                     category.categoryName = newCategoryName
                     updateCategory(category)
+                    updateProductCategories(oldCategoryName,newCategoryName)
 
                     val  intent = Intent(this,CategoryActivity::class.java)
                     startActivity(intent)
                 }else{
-                    Toast.makeText(this, "Category ${categoryName.uppercase().replace("\\s+".toRegex()," ")} already exist", Toast.LENGTH_SHORT).show()
-                    //    Toast.makeText(this, "Category $categoryName already exist", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Category $newCategoryName already exist", Toast.LENGTH_SHORT).show()
+
                 }
 
 
@@ -65,6 +66,11 @@ class CategoryUpdateActivity: AppCompatActivity(){
         val inventoryRepo = getInventoryRepo()
         inventoryRepo.updateCategory(category)
 
+    }
+
+    private fun updateProductCategories(oldCategoryName:String,newCategoryName:String){
+        val inventoryRepo = getInventoryRepo()
+        inventoryRepo.updateProductCategories(oldCategoryName,newCategoryName)
     }
 
     private fun  getCategory(categoryName: String): Category {

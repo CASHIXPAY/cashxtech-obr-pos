@@ -78,5 +78,10 @@ class InventoryRepository (private val inventoryDao: InventoryDao) {
         inventoryDao.updateCategory(category)
     }
 
+    fun updateProductCategories(oldCategoryName:String,newCategoryName:String){
+
+        inventoryDao.updateProductCategories(oldCategoryName,newCategoryName)
+    }
+
 
 }

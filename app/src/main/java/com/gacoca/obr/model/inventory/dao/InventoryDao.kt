@@ -55,6 +55,11 @@ interface InventoryDao {
     @Update
     fun updateProduct(product: Product)
 
+
+    @Transaction
+    @Query("UPDATE Product SET category_name = :newCategoryName WHERE category_name = :oldCategoryName")
+    fun updateProductCategories(oldCategoryName: String,newCategoryName: String)
+
     @Transaction
     @Update
     fun updateCategory(category: Category)
