@@ -9,14 +9,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.gacoca.obr.R
 import com.gacoca.obr.activity.inventory.ProductDetailActivity
-import com.gacoca.obr.activity.invoice.InvoiceActivity
-import com.gacoca.obr.model.inventory.entities.Category
+
 import com.gacoca.obr.model.inventory.entities.Product
 
 import kotlinx.android.synthetic.main.activity_inventory_category_item.view.cbSelect
 import kotlinx.android.synthetic.main.activity_inventory_product_item.view.*
 import kotlinx.android.synthetic.main.activity_inventory_product_item.view.btDetails
-import kotlinx.android.synthetic.main.invoice_saved_list.view.*
+
 
 class ProductAdapter (private  val productItemList: MutableList<Product>) : RecyclerView.Adapter<ProductAdapter.ProductItemViewHolder>() {
 

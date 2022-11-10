@@ -13,7 +13,7 @@ data class Category @JvmOverloads constructor (
     val id :Int,
 
     @ColumnInfo(name = "category_name")
-    val categoryName: String,
+    var categoryName: String,
 
 
     ) {

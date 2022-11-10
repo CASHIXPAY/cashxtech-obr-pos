@@ -60,6 +60,9 @@
             android:name=".activity.inventory.ProductDetailActivity"
             android:screenOrientation="fullSensor" />
         <activity
+            android:name=".activity.inventory.CategoryUpdateActivity"
+            android:screenOrientation="fullSensor" />
+        <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="portrait"
             tools:replace="screenOrientation"

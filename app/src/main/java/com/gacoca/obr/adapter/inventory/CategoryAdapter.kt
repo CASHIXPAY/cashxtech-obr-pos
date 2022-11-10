@@ -1,14 +1,21 @@
 package com.gacoca.obr.adapter.inventory
 
+
+import android.content.Intent
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
 import android.widget.TextView
+
 import androidx.recyclerview.widget.RecyclerView
 import com.gacoca.obr.R
+import com.gacoca.obr.activity.inventory.CategoryUpdateActivity
+
 import com.gacoca.obr.model.inventory.entities.Category
 import kotlinx.android.synthetic.main.activity_inventory_category_item.view.*
+
 
 class CategoryAdapter (private  val categoryItemList: MutableList<Category>) : RecyclerView.Adapter<CategoryAdapter.CategoryItemViewHolder>() {
 
@@ -35,6 +42,15 @@ class CategoryAdapter (private  val categoryItemList: MutableList<Category>) : R
                 curCategoryItem.checked = !curCategoryItem.checked
             }
 
+            btModify.setOnClickListener{
+
+                val intent = Intent(holder.itemView.context, CategoryUpdateActivity::class.java)
+
+                intent.putExtra("CategoryName",curCategoryItem.categoryName)
+
+                holder.itemView.context.startActivity(intent)
+            }
+
         }
     }
 
@@ -45,6 +61,8 @@ class CategoryAdapter (private  val categoryItemList: MutableList<Category>) : R
             tvCategoryItem.paintFlags = tvCategoryItem.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
         }
     }
+
+
 
     fun addCategoryItem(category:Category){
 

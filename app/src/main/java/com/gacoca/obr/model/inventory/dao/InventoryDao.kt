@@ -23,6 +23,9 @@ interface InventoryDao {
     @Query("SELECT * FROM Product WHERE product_name = :productName")
     fun getProductByName(productName: String): Product
 
+    @Query("SELECT * FROM Category WHERE category_name = :categoryName")
+    fun getCategoryByName(categoryName: String): Category
+
     @Transaction
     @Query("SELECT * FROM Product WHERE category_name = :categoryName")
     fun getProductsByCategory(categoryName:String): List<Product>
@@ -51,6 +54,10 @@ interface InventoryDao {
     @Transaction
     @Update
     fun updateProduct(product: Product)
+
+    @Transaction
+    @Update
+    fun updateCategory(category: Category)
 
 
 
