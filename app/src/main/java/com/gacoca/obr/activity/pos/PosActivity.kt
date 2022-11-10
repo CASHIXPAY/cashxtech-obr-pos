@@ -7,7 +7,7 @@ import android.os.Parcelable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gacoca.obr.R
-import com.gacoca.obr.adapter.InvoiceItemAdapter
+import com.gacoca.obr.adapter.invoice.InvoiceItemAdapter
 
 import com.gacoca.obr.model.invoice.logic.InvoiceDetails
 import com.gacoca.obr.model.invoice.logic.InvoiceItemDetails

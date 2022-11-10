@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.gacoca.obr">
 
+    <uses-permission android:name="android.permission.CAMERA"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -41,6 +42,32 @@
         <activity
             android:name=".activity.invoice.CancelInvoicePopUpWindow"
             android:screenOrientation="fullSensor" />
+
+        <activity
+            android:name=".activity.inventory.InventoryActivity"
+            android:screenOrientation="fullSensor" />
+
+        <activity
+            android:name=".activity.inventory.CategoryActivity"
+            android:screenOrientation="fullSensor" />
+        <activity
+            android:name=".activity.inventory.ProductActivity"
+            android:screenOrientation="fullSensor" />
+        <activity
+            android:name=".activity.inventory.AddProductActivity"
+            android:screenOrientation="fullSensor" />
+        <activity
+            android:name=".activity.inventory.ProductDetailActivity"
+            android:screenOrientation="fullSensor" />
+        <activity
+            android:name=".activity.inventory.CategoryUpdateActivity"
+            android:screenOrientation="fullSensor" />
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="portrait"
+            tools:replace="screenOrientation"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"/>
     </application>
 
 </manifest>

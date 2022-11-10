@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.gacoca.obr.R
 import com.gacoca.obr.activity.MainActivity
 
-import com.gacoca.obr.adapter.InvoiceItemEncaisseAdapter
+import com.gacoca.obr.adapter.invoice.InvoiceItemEncaisseAdapter
 import com.gacoca.obr.database.PosDatabase
 import com.gacoca.obr.model.invoice.entities.InvoiceItem
 import com.gacoca.obr.model.invoice.entities.InvoiceWithItems
