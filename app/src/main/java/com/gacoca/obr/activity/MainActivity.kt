@@ -8,6 +8,8 @@ import com.gacoca.obr.R
 import com.gacoca.obr.activity.inventory.InventoryActivity
 import com.gacoca.obr.activity.invoice.InvoiceManagerActivity
 import com.gacoca.obr.activity.pos.PosActivity
+import com.gacoca.obr.activity.shopconfig.ShopConfigActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,13 +31,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         btInvoiceManager.setOnClickListener {
-            val  intent = Intent(this, InvoiceManagerActivity::class.java)
+            val intent = Intent(this, InvoiceManagerActivity::class.java)
             startActivity(intent)
         }
 
         btInventory.setOnClickListener {
 
-            val  intent = Intent(this,InventoryActivity::class.java)
+            val intent = Intent(this, InventoryActivity::class.java)
+            startActivity(intent)
+        }
+
+        btParametre.setOnClickListener {
+
+            val intent = Intent(this, ShopConfigActivity::class.java)
             startActivity(intent)
         }
 

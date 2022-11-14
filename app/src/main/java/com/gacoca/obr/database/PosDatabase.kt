@@ -11,17 +11,20 @@ import com.gacoca.obr.model.inventory.entities.Product
 import com.gacoca.obr.model.invoice.entities.Invoice
 import com.gacoca.obr.model.invoice.entities.InvoiceItem
 import com.gacoca.obr.model.invoice.dao.InvoiceDao
+import com.gacoca.obr.model.shopconfig.dao.ShopConfigDao
+import com.gacoca.obr.model.shopconfig.entities.TaxConfig
 
 
 @Database(
-    entities = [Invoice::class,InvoiceItem::class,Category::class,Product::class],
-    version = 5,
+    entities = [Invoice::class, InvoiceItem::class, Category::class, Product::class, TaxConfig::class],
+    version = 7,
     exportSchema = true
 )
 abstract class PosDatabase : RoomDatabase() {
 
     abstract fun invoiceDao(): InvoiceDao
     abstract fun inventoryDao(): InventoryDao
+    abstract fun shopConfigDao(): ShopConfigDao
 
     companion object{
 
