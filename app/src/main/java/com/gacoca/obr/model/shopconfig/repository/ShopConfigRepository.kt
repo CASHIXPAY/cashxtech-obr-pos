@@ -2,6 +2,7 @@ package com.gacoca.obr.model.shopconfig.repository
 
 
 import com.gacoca.obr.model.shopconfig.dao.ShopConfigDao
+import com.gacoca.obr.model.shopconfig.entities.Shop
 import com.gacoca.obr.model.shopconfig.entities.TaxConfig
 
 class ShopConfigRepository(private val shopConfigDao: ShopConfigDao) {
@@ -20,5 +21,20 @@ class ShopConfigRepository(private val shopConfigDao: ShopConfigDao) {
     fun updateTaxConfig(taxConfig: TaxConfig) {
 
         return shopConfigDao.updateTaxConfig(taxConfig)
+    }
+
+    fun saveShopDetails(shop: Shop) {
+
+        shopConfigDao.insertShopDetails(shop)
+    }
+
+    fun getShopDetails(): Shop {
+
+        return shopConfigDao.getShopDetails()
+    }
+
+    fun updateShopDetails(shop: Shop) {
+
+        shopConfigDao.updateShop(shop)
     }
 }
