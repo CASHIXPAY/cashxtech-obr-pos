@@ -19,5 +19,11 @@ class ShopConfigActivity : AppCompatActivity() {
             val intent = Intent(this, TaxConfigActivity::class.java)
             startActivity(intent)
         }
+
+        btShopDetails.setOnClickListener {
+
+            val intent = Intent(this, ShopDetailsActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
