@@ -18,7 +18,7 @@ import com.gacoca.obr.model.shopconfig.entities.TaxConfig
 
 @Database(
     entities = [Invoice::class, InvoiceItem::class, Category::class, Product::class, TaxConfig::class, Shop::class],
-    version = 8,
+    version = 9,
     exportSchema = true
 )
 abstract class PosDatabase : RoomDatabase() {

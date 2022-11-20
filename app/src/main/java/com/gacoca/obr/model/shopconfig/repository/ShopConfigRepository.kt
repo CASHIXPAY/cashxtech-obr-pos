@@ -23,6 +23,11 @@ class ShopConfigRepository(private val shopConfigDao: ShopConfigDao) {
         return shopConfigDao.updateTaxConfig(taxConfig)
     }
 
+    fun isTaxConfigExist(): Boolean {
+
+        return shopConfigDao.isTaxConfigExist()
+    }
+
     fun saveShopDetails(shop: Shop) {
 
         shopConfigDao.insertShopDetails(shop)

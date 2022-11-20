@@ -1,6 +1,8 @@
 package com.gacoca.obr.activity.shopconfig
 
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -16,11 +18,30 @@ import kotlinx.android.synthetic.main.activity_shop_config_details.btSave
 
 class ShopDetailsActivity : AppCompatActivity() {
 
+    private val sharedPrefFile = "shopConfigSharedPreference"
+
+    private val defaultConfigValue: String = "default_shop_is_configured_value"
+
+    private val configValue: String = "is_shop_configured_value"
+
+    private lateinit var shop: Shop
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shop_config_details)
 
-        var shop = prepopulate()
+
+        val sharedPreferences: SharedPreferences = this.getSharedPreferences(
+            sharedPrefFile,
+            Context.MODE_PRIVATE
+        )
+        with(sharedPreferences.edit()) {
+            putBoolean(defaultConfigValue, false)
+            apply()
+        }
+        if (isConfigured()) {
+            shop = prepopulate()
+        }
         btSave.setOnClickListener {
 
             val shopName = edShopName.text.toString()
@@ -28,7 +49,7 @@ class ShopDetailsActivity : AppCompatActivity() {
             val email = edEmailAddress.text.toString()
             val address = edAddress.text.toString()
 
-            if (shop.id == 1) {
+            if (isConfigured()) {
 
                 shop.name = shopName
                 shop.phoneNumber = phoneNumber
@@ -45,10 +66,23 @@ class ShopDetailsActivity : AppCompatActivity() {
                 )
 
                 saveShopDetails(shop)
+                with(sharedPreferences.edit()) {
+                    putBoolean(configValue, true)
+                    apply()
+                }
                 Toast.makeText(this, "Saved shop details", Toast.LENGTH_SHORT).show()
             }
 
         }
+    }
+
+    private fun isConfigured(): Boolean {
+        val sharedPreferences: SharedPreferences = this.getSharedPreferences(
+            sharedPrefFile,
+            Context.MODE_PRIVATE
+        )
+        return sharedPreferences.getBoolean(configValue, false)
+
     }
 
     private fun prepopulate(): Shop {
@@ -61,8 +95,6 @@ class ShopDetailsActivity : AppCompatActivity() {
         edPhoneNumber.setText(shop.phoneNumber)
         edEmailAddress.setText(shop.email)
         edAddress.setText(shop.address)
-
-
 
         return shop
     }

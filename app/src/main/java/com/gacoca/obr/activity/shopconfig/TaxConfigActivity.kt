@@ -11,12 +11,17 @@ import kotlinx.android.synthetic.main.activity_shop_config_tax.*
 
 class TaxConfigActivity : AppCompatActivity() {
 
+    private lateinit var taxConfig: TaxConfig
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shop_config_tax)
 
+        if (isConfigured()) {
+            taxConfig = prepopulate()
+        }
 
-        var taxConfig = prepopulate()
+
         swVat.setOnCheckedChangeListener { _, isChecked ->
             edVatPercentage.text.clear()
             edVatPercentage.isEnabled = isChecked
@@ -35,8 +40,7 @@ class TaxConfigActivity : AppCompatActivity() {
                 vatPercentage = edVatPercentage.text.toString().toDouble()
             }
 
-            if (taxConfig.id == 1) {
-
+            if (isConfigured()) {
 
                 taxConfig.taxIdNumber = taxIdNumber
                 taxConfig.registryNumber = registryNumber
@@ -48,6 +52,7 @@ class TaxConfigActivity : AppCompatActivity() {
                 updateTaxConfig(taxConfig)
                 Toast.makeText(this, "Updated tax configuration", Toast.LENGTH_SHORT).show()
             } else {
+
                 taxConfig = TaxConfig(
                     0,
                     taxIdNumber,
@@ -67,6 +72,13 @@ class TaxConfigActivity : AppCompatActivity() {
     }
 
 
+    private fun isConfigured(): Boolean {
+        val shopConfigRepo = getShopConfigRepo()
+
+        return shopConfigRepo.isTaxConfigExist()
+
+    }
+
     private fun prepopulate(): TaxConfig {
 
         val shopConfigRepo = getShopConfigRepo()
@@ -84,6 +96,7 @@ class TaxConfigActivity : AppCompatActivity() {
 
         return taxConfig
     }
+
 
     private fun saveTaxConfig(taxConfig: TaxConfig) {
 

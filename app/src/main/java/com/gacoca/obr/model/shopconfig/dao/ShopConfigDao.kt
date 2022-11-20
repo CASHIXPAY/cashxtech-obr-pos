@@ -18,6 +18,10 @@ interface ShopConfigDao {
     @Update
     fun updateTaxConfig(taxConfig: TaxConfig)
 
+
+    @Query("SELECT EXISTS(SELECT * FROM TaxConfig)")
+    fun isTaxConfigExist(): Boolean
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertShopDetails(shop: Shop)
 
