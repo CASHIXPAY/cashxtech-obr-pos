@@ -42,4 +42,9 @@ class ShopConfigRepository(private val shopConfigDao: ShopConfigDao) {
 
         shopConfigDao.updateShop(shop)
     }
+
+    fun isShopConfigExist(): Boolean {
+
+        return shopConfigDao.isShopConfigExist()
+    }
 }

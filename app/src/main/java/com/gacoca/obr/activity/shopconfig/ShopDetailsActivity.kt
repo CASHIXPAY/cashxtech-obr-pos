@@ -1,8 +1,5 @@
 package com.gacoca.obr.activity.shopconfig
 
-
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -18,11 +15,6 @@ import kotlinx.android.synthetic.main.activity_shop_config_details.btSave
 
 class ShopDetailsActivity : AppCompatActivity() {
 
-    private val sharedPrefFile = "shopConfigSharedPreference"
-
-    private val defaultConfigValue: String = "default_shop_is_configured_value"
-
-    private val configValue: String = "is_shop_configured_value"
 
     private lateinit var shop: Shop
 
@@ -30,15 +22,6 @@ class ShopDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shop_config_details)
 
-
-        val sharedPreferences: SharedPreferences = this.getSharedPreferences(
-            sharedPrefFile,
-            Context.MODE_PRIVATE
-        )
-        with(sharedPreferences.edit()) {
-            putBoolean(defaultConfigValue, false)
-            apply()
-        }
         if (isConfigured()) {
             shop = prepopulate()
         }
@@ -66,10 +49,6 @@ class ShopDetailsActivity : AppCompatActivity() {
                 )
 
                 saveShopDetails(shop)
-                with(sharedPreferences.edit()) {
-                    putBoolean(configValue, true)
-                    apply()
-                }
                 Toast.makeText(this, "Saved shop details", Toast.LENGTH_SHORT).show()
             }
 
@@ -77,11 +56,9 @@ class ShopDetailsActivity : AppCompatActivity() {
     }
 
     private fun isConfigured(): Boolean {
-        val sharedPreferences: SharedPreferences = this.getSharedPreferences(
-            sharedPrefFile,
-            Context.MODE_PRIVATE
-        )
-        return sharedPreferences.getBoolean(configValue, false)
+        val shopConfigRepo = getShopConfigRepo()
+
+        return shopConfigRepo.isShopConfigExist()
 
     }
 

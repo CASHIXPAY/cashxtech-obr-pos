@@ -31,4 +31,7 @@ interface ShopConfigDao {
     @Transaction
     @Update
     fun updateShop(shop: Shop)
+
+    @Query("SELECT EXISTS(SELECT * FROM Shop)")
+    fun isShopConfigExist(): Boolean
 }
